@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 导航栏动画样式 */
+:root {
+  --animate-color: hsl(212deg 100% 94%);
+  --animate-hover-color: hsl(212deg 100% 80%);
+}
+
+.dark {
+  --animate-color: rgba(0, 138, 230, 72%);
+  --animate-hover-color: rgba(0, 138, 230, 100%);
+}
+
+a.animated {
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+a.animated::after {
+  content: "";
+  width: 0%;
+  height: 5px;
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 4px;
+  background-color: var(--animate-color);
+  transition: width 200ms ease-in-out;
+}
+
+a.animated:hover::after {
+  width: 100%;
+}
+
+a.animated-active::after {
+  width: 100%;
+  background-color: var(--animate-hover-color);
+}
