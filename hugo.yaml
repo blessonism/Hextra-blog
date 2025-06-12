@@ -18,21 +18,27 @@ markup:
 
 menu:
   main:
-    - name: Docs
+    - name: 文档
       pageRef: /docs
       weight: 1
-    - name: About
-      pageRef: /about
+    - name: 项目展示
+      pageRef: /showcase
       weight: 2
-    - name: Contact ↗
-      url: "https://github.com/blessonism"
+    - name: 博客
+      pageRef: /blog
       weight: 3
-    - name: Search
+    - name: 关于
+      pageRef: /about
       weight: 4
+    # - name: Contact ↗
+    #   url: "https://github.com/blessonism"
+    #   weight: 4
+    - name: Search
+      weight: 5
       params:
         type: search
     - name: GitHub
-      weight: 5
+      weight: 6
       url: "https://github.com/blessonism/Hextra-blog"
       params:
         icon: github
