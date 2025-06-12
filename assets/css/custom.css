@@ -1,0 +1,555 @@
+@import "tailwind.css";
+
+:root {
+  --background-color: #dbe6ef;
+  --text-color: rgba(107, 114, 128, 1);
+  --text-hover-color: rgba(20, 20, 20, 1);
+  --animate-color: hsl(212deg 100% 94%);
+  --animate-hover-color: hsl(212deg 100% 80%);
+  --hoa-filetree-checked-color: rgb(243 244 246 / var(--tw-text-opacity, 1));
+}
+
+.dark {
+  --background-color: rgb(40, 40, 40);
+  --text-hover-color: rgba(250, 250, 250, 1);
+  --text-color: rgba(107, 114, 128, 1);
+  --animate-color: rgba(0, 138, 230, 72%);
+  --animate-hover-color: rgba(0, 138, 230, 100%);
+  --hoa-filetree-checked-color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+}
+
+img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.content :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  border-radius: 0.375rem;
+}
+
+.content :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  --tw-text-opacity: 1;
+  color: hsl(
+    var(--primary-hue) var(--primary-saturation) 45% / var(--tw-text-opacity)
+  );
+  /* color: #0b346e; */
+  text-decoration-line: solid;
+  text-decoration-thickness: from-font;
+  text-underline-position: from-font;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--background-color);
+
+  &:hover {
+    text-decoration-color: hsl(
+      var(--primary-hue) var(--primary-saturation) 45% / var(--tw-text-opacity)
+    );
+  }
+}
+
+a.hoa-inline-link {
+  --tw-text-opacity: 1;
+  color: hsl(
+    var(--primary-hue) var(--primary-saturation) 45% / var(--tw-text-opacity)
+  );
+  /* color: #0b346e; */
+  text-decoration-line: solid;
+  text-decoration-thickness: from-font;
+  text-underline-position: from-font;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--background-color);
+
+  &:hover {
+    text-decoration-color: hsl(
+      var(--primary-hue) var(--primary-saturation) 45% / var(--tw-text-opacity)
+    );
+  }
+}
+
+a.animated {
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+a.animated::after {
+  content: "";
+  width: 0%;
+  height: 5px;
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 4px;
+  background-color: var(--animate-color);
+  transition: width 200ms ease-in-out;
+}
+
+a.animated:hover::after {
+  width: 100%;
+}
+
+a.animated-active::after {
+  width: 100%;
+  background-color: var(--animate-hover-color);
+}
+
+a.hextra-feature-card {
+  box-shadow: 2px 4px 12px #00000014;
+}
+
+a.hextra-feature-card:hover {
+  transition: transform 300ms;
+  transform: scale3d(1.01, 1.01, 1.01);
+  box-shadow: 2px 4px 16px #00000029;
+}
+
+.grid-col-span-2 {
+  grid-column-start: span 2;
+}
+
+.img-div > p {
+  margin-top: 4px;
+}
+
+.img-div > p > img {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.header-icon {
+  filter: opacity(50%);
+  transition: filter 300ms;
+}
+
+.header-icon:hover {
+  filter: none;
+}
+
+.hoa-filetree-file:has(input:checked) {
+  background-color: var(--hoa-filetree-checked-color);
+}
+
+.hoa-filetree-folder:has(input:checked) {
+  background-color: var(--hoa-filetree-checked-color);
+}
+
+.hoa-filetree-download-progress {
+  /*-webkit-mask: radial-gradient(circle at center, transparent 0.600rem, #000 0.601rem);*/
+  mask: radial-gradient(circle at center, transparent 0.5rem, #000 0.501rem);
+}
+
+/* The slider */
+input:checked + .select {
+  /* bg-blue-50 */
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
+  /* text-blue-600 */
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+
+input:checked + .select:is(html[class~="dark"] *) {
+  /* dark:bg-blue-900 */
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 58 138 / 0.3);
+  /* text-blue-300 */
+  --tw-text-opacity: 1;
+  color: rgb(147 197 253 / var(--tw-text-opacity));
+}
+
+input:checked + .select:hover {
+  /* hover:bg-blue-100 */
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+
+input:checked + .select:hover:is(html[class~="dark"] *) {
+  /* dark:hover:bg-blue-100 */
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+}
+
+input:checked + .select .slider {
+  /* bg-blue-500 */
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+input:focus + .select .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .select .slider > div {
+  -webkit-transform: translateX(1rem);
+  -ms-transform: translateX(1rem);
+  transform: translateX(1rem);
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+  height: 5px;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+:where(table):not(
+    :where(
+        .hextra-code-block table,
+        [class~="not-prose"],
+        [class~="not-prose"] *
+      )
+  ) {
+  display: block;
+  max-height: 560px;
+  overflow: scroll;
+  margin-top: 1.5rem;
+  padding: 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  tr {
+    margin: 0;
+    border-top: 1px solid #d1d5db;
+    padding: 0;
+    max-height: 64px;
+    text-wrap: balance;
+
+    &:nth-child(even) {
+      background-color: rgb(243 244 246);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      border-color: #4b5563;
+
+      &:nth-child(even) {
+        background-color: rgba(75, 85, 99, 0.2);
+      }
+    }
+
+    @media (max-width: 640px) {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  th {
+    margin: 0;
+    border: 1px solid #d1d5db;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    max-height: 64px;
+    min-width: 64px;
+    text-wrap: balance;
+    overflow: hidden;
+
+    @media (prefers-color-scheme: dark) {
+      border-color: #4b5563;
+    }
+
+    @media (max-width: 640px) {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  td {
+    margin: 0;
+    border: 1px solid #d1d5db;
+    padding: 0.5rem 1rem;
+    max-height: 64px;
+    min-width: 96px;
+    text-wrap: balance;
+    overflow: hidden;
+
+    @media (prefers-color-scheme: dark) {
+      border-color: #4b5563;
+    }
+
+    @media (max-width: 640px) {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+/* 
+ * Hextra主题TOC滚动条优化样式
+ * 完全隐藏滚动条但保持滚动功能
+ * 包含跨浏览器兼容性和移动端适配
+ */
+
+/* ========================================
+   TOC容器基础样式优化
+   ======================================== */
+
+.hextra-toc {
+  /* 确保TOC容器具有合适的定位和溢出处理 */
+  position: sticky;
+  top: var(--navbar-height, 4rem);
+  max-height: calc(100vh - var(--navbar-height, 4rem) - 2rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* 完全隐藏滚动条 - 所有浏览器通用 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+
+  /* 平滑滚动 */
+  scroll-behavior: smooth;
+}
+
+/* Webkit内核浏览器滚动条完全隐藏 */
+.hextra-toc::-webkit-scrollbar {
+  display: none; /* 完全隐藏滚动条 */
+}
+
+/* ========================================
+   .hextra-scrollbar类的统一优化
+   ======================================== */
+
+.hextra-scrollbar {
+  /* 完全隐藏滚动条 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+
+  /* 平滑滚动 */
+  scroll-behavior: smooth;
+}
+
+.hextra-scrollbar::-webkit-scrollbar {
+  display: none; /* 完全隐藏滚动条 */
+}
+
+/* ========================================
+   移动端适配
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hextra-toc {
+    /* 移动端完全隐藏滚动条，依赖触摸滚动 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    /* 确保触摸滚动平滑 */
+    -webkit-overflow-scrolling: touch;
+
+    /* 移动端调整最大高度 */
+    max-height: calc(100vh - 3rem);
+  }
+
+  .hextra-toc::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hextra-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hextra-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ========================================
+   无障碍访问支持
+   ======================================== */
+
+/* 用户偏好减少动画时禁用过渡效果 */
+@media (prefers-reduced-motion: reduce) {
+  .hextra-toc,
+  .hextra-scrollbar {
+    scroll-behavior: auto;
+  }
+}
+
+/* ========================================
+   性能优化
+   ======================================== */
+
+.hextra-toc,
+.hextra-scrollbar {
+  /* 启用硬件加速 */
+  transform: translateZ(0);
+  will-change: scroll-position;
+
+  /* 优化重绘性能 */
+  contain: layout style paint;
+}
+
+/* ========================================
+   兼容性备用方案
+   ======================================== */
+
+/* 悬停时显示滚动条 */
+.hextra-scrollbar:hover {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.6) transparent;
+}
+
+.hextra-scrollbar:hover::-webkit-scrollbar {
+  width: 5px;
+}
+
+.hextra-scrollbar:hover::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 2.5px;
+}
+
+.hextra-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.6);
+  border-radius: 2.5px;
+  transition: all 0.2s ease;
+}
+
+.hextra-scrollbar:hover::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.8);
+}
+
+/* ========================================
+   移动端适配
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hextra-toc {
+    /* 移动端默认隐藏滚动条，依赖触摸滚动 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    /* 确保触摸滚动平滑 */
+    -webkit-overflow-scrolling: touch;
+
+    /* 移动端调整最大高度 */
+    max-height: calc(100vh - 3rem);
+  }
+
+  .hextra-toc::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 移动端不显示悬停效果，避免触摸设备上的问题 */
+  .hextra-toc:hover {
+    scrollbar-width: none;
+  }
+
+  .hextra-toc:hover::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ========================================
+   平板设备适配（中等屏幕）
+   ======================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hextra-toc:hover::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .hextra-scrollbar:hover::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+/* ========================================
+   高分辨率屏幕优化
+   ======================================== */
+
+@media (min-resolution: 2dppx) {
+  .hextra-toc:hover::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .hextra-toc:hover::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+  }
+}
+
+/* ========================================
+   无障碍访问支持
+   ======================================== */
+
+/* 用户偏好减少动画时禁用过渡效果 */
+@media (prefers-reduced-motion: reduce) {
+  .hextra-toc,
+  .hextra-scrollbar,
+  .hextra-toc:hover::-webkit-scrollbar-thumb,
+  .hextra-scrollbar:hover::-webkit-scrollbar-thumb {
+    transition: none;
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .hextra-toc:hover::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  [data-theme="dark"] .hextra-toc:hover::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* ========================================
+   性能优化
+   ======================================== */
+
+.hextra-toc,
+.hextra-scrollbar {
+  /* 启用硬件加速 */
+  transform: translateZ(0);
+  will-change: scroll-position;
+
+  /* 优化重绘性能 */
+  contain: layout style paint;
+}
+
+/* ========================================
+   兼容性备用方案
+   ======================================== */
+
+/* 对于不支持scrollbar-width的旧版Firefox */
+@-moz-document url-prefix() {
+  .hextra-toc {
+    overflow: -moz-scrollbars-none;
+  }
+}
+
+/* IE兼容性 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .hextra-toc {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .hextra-toc:hover {
+    -ms-overflow-style: scrollbar;
+  }
+}
+
+/* ========================================
+   调试辅助样式（开发时可启用）
+   ======================================== */
+
+/*
+.hextra-toc {
+  border: 1px dashed red;
+}
+
+.hextra-toc:hover {
+  border-color: blue;
+}
+*/
