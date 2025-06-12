@@ -1,9 +1,7 @@
 ---
-title: Hey
-toc: false
+title: Welcome to my home
+toc: flase
 ---
-
-This is the landing page.
 
 ## Explore
 
