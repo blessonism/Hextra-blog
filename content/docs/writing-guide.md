@@ -9,8 +9,11 @@ math: true
 toc: true
 ---
 
-本指南帮助你充分利用 Hugo + Hextra 主题，写出视觉友好、结构清晰的高质量内容。
-https://imfing.github.io/hextra/zh-cn/docs/advanced/customization/  
+本指南帮助你充分利用 Hugo + Hextra 主题，写出视觉友好、结构清晰的高质量内容。  
+<br/>
+
+  {{< card link="https://imfing.github.io/hextra/zh-cn/docs/advanced/customization" title="Hxtra Docs" icon="book-open" tag="推荐" >}}
+
 
 ## 1. 必要配置
 
