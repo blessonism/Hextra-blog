@@ -2,7 +2,7 @@
 title: Folder
 type: blog
 prev: blog/first-page
-next: blog/folder/leaf
+next: blog/folder/Resource
 sidebar:
   open: true
 ---

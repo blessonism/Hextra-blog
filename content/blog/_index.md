@@ -1,19 +1,5 @@
 ---
-title: Documentation
-toc: true
-next: first-page
+title: Blog
 ---
 
-This is a demo of the theme's documentation layout.
-
-## Hello, World!
-
-```go {filename="main.go"}
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello, World!")
-}
-```
+这里是博客分区，用于发布日常更新与随笔。

@@ -1,5 +1,5 @@
 ---
-title: Leaf Page
+title: Resource Page
 type: blog
 prev: blog/folder/
 ---

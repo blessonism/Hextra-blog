@@ -1,4 +1,5 @@
 # Hugo configuration file
+baseURL: "https://blog.sukisq.me/"
 title: Dumb fox's Space
 
 # import hextra as module
@@ -18,21 +19,18 @@ markup:
 
 menu:
   main:
-    - name: 文档
+    - name: Docs
       pageRef: /docs
       weight: 1
-    - name: 项目展示
-      pageRef: /showcase
-      weight: 2
-    - name: 博客
+    - name: Blog
       pageRef: /blog
-      weight: 3
-    - name: 关于
+      weight: 2
+    - name: About
       pageRef: /about
+      weight: 3
+    - name: Showcase
+      pageRef: /showcase
       weight: 4
-    # - name: Contact ↗
-    #   url: "https://github.com/blessonism"
-    #   weight: 4
     - name: Search
       weight: 5
       params:
@@ -55,3 +53,8 @@ params:
   editURL:
     enable: true
     base: "https://github.com/blessonism/Hextra-blog/edit/main/content"
+
+taxonomies:
+  tag: tags
+  category: categories
+  series: series

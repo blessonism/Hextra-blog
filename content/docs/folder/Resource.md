@@ -1,5 +1,5 @@
 ---
-title: Leaf Page
+title: Resource Page
 type: docs
 prev: docs/folder/
 ---
