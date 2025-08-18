@@ -34,7 +34,7 @@ toc: true
 
 {{< cards cols="2" >}}
   {{< card link="https://gohugo.io" title="Hugo" subtitle="世界上最快的网站构建框架" icon="lightning-bolt" >}}
-  {{< card link="https://github.com/imfing/hextra" title="Hextra" subtitle="现代化的 Hugo 文档主题" icon="template" >}}
+  {{< card link="https://github.com/blessonism" title="Hextra" subtitle="现代化的 Hugo 文档主题" icon="template" >}}
 {{< /cards >}}
 
 ### 带标签的卡片

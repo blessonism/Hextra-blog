@@ -37,7 +37,7 @@ menu:
         type: search
     - name: GitHub
       weight: 6
-      url: "https://github.com/blessonism/Hextra-blog"
+      url: "https://github.com/blessonism"
       params:
         icon: github
 
@@ -52,7 +52,7 @@ params:
 
   editURL:
     enable: true
-    base: "https://github.com/blessonism/Hextra-blog/edit/main/content"
+    base: "https://github.com/blessonism/edit/main/content"
 
 taxonomies:
   tag: tags
