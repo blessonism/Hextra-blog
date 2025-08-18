@@ -1,12 +1,12 @@
 # Hextra Starter Template
 
-[![Deploy Hugo site to Pages](https://github.com/blessonism/Hextra-blog/actions/workflows/pages.yaml/badge.svg)](https://github.com/blessonism/Hextra-blog/actions/workflows/pages.yaml)
+[![Deploy Hugo site to Pages](https://github.com/blessonism/actions/workflows/pages.yaml/badge.svg)](https://github.com/blessonism/actions/workflows/pages.yaml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6e83fd88-5ffe-4808-9689-c0f3b100bfe3/deploy-status)](https://app.netlify.com/sites/hextra-starter-template/deploys)
 ![Vercel Deployment Status](https://img.shields.io/github/deployments/imfing/hextra-starter-template/production?logo=vercel&logoColor=white&label=vercel&labelColor=black&link=https%3A%2F%2Fhextra-starter-template.vercel.app%2F)
 
 🐣 Minimal template for getting started with [Hextra](https://github.com/blessonism/hextra)
 
-![hextra-template](https://github.com/blessonism/Hextra-blog/assets/5097752/c403b9a9-a76c-47a6-8466-513d772ef0b7)
+![hextra-template](https://github.com/blessonism/assets/5097752/c403b9a9-a76c-47a6-8466-513d772ef0b7)
 
 [🌐 Demo ↗](https://imfing.github.io/hextra-starter-template/)
 
@@ -26,7 +26,7 @@ You can also quickly start developing using the following online development env
 
 - [Gitpod](https://gitpod.io)
 
-  [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/blessonism/Hextra-blog)
+  [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/blessonism)
 
 ## Deployment
 
@@ -38,13 +38,13 @@ For details, see [Publishing with a custom GitHub Actions workflow](https://docs
 
 Note: in the settings, make sure to set the Pages deployment source to **GitHub Actions**:
 
-<img src="https://github.com/blessonism/Hextra-blog/assets/5097752/99676430-884e-42ab-b901-f6534a0d6eee" width=600 />
+<img src="https://github.com/blessonism/assets/5097752/99676430-884e-42ab-b901-f6534a0d6eee" width=600 />
 
 [Run the workflow manually](https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow) if it's not triggered automatically.
 
 ### Netlify
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/blessonism/Hextra-blog)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/blessonism)
 
 ### Vercel
 
@@ -52,7 +52,7 @@ Note: in the settings, make sure to set the Pages deployment source to **GitHub 
 
 Override the configuration:
 
-<img src="https://github.com/blessonism/Hextra-blog/assets/5097752/e2e3cecd-c884-47ec-b064-14f896fee08d" width=600 />
+<img src="https://github.com/blessonism/assets/5097752/e2e3cecd-c884-47ec-b064-14f896fee08d" width=600 />
 
 ## Local Development
 
@@ -60,7 +60,7 @@ Pre-requisites: [Hugo](https://gohugo.io/getting-started/installing/), [Go](http
 
 ```shell
 # Clone the repo
-git clone https://github.com/blessonism/Hextra-blog.git
+git clone https://github.com/blessonism.git
 
 # Change directory
 cd hextra-starter-template
