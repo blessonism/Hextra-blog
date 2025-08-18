@@ -52,7 +52,7 @@ params:
 
   editURL:
     enable: true
-    base: "https://github.com/blessonism/edit/main/content"
+    base: "https://github.com/blessonism"
 
 taxonomies:
   tag: tags

@@ -1,0 +1,22 @@
+{{/* Local override for theme CSS injection to avoid referencing /css/tailwind.css directly */}}
+{{ $main := resources.Get "css/compiled/main.css" }}
+{{ if not $main }}
+  {{/* Fallback: try building from tailwind.css if compiled not found (requires Hugo Pipes/PostCSS setup) */}}
+  {{ $main = resources.Get "css/tailwind.css" }}
+{{ end }}
+{{ if $main }}
+  {{ if hugo.IsProduction }}
+    {{ $main = $main | minify | fingerprint }}
+  {{ end }}
+  <link rel="stylesheet" href="{{ $main.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $main.Data.Integrity }}"{{ end }}>
+{{ end }}
+
+{{/* Optional project-level overrides */}}
+{{ $custom := resources.Get "css/custom.css" }}
+{{ if $custom }}
+  {{ if hugo.IsProduction }}
+    {{ $custom = $custom | minify | fingerprint }}
+  {{ end }}
+  <link rel="stylesheet" href="{{ $custom.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $custom.Data.Integrity }}"{{ end }}>
+{{ end }}
+
