@@ -34,11 +34,12 @@
               {{- end -}}
             {{- end -}}
           {{- end -}}
-              <span class="hx-mx-1">·</span>{{ partial "components/pageviews.html" . }}
-
         </div>
         <div class="content">
           {{ .Content }}
+          <div class="hx-mt-6 hx-flex hx-justify-end hx-pv-footer">
+            {{ partial "components/pageviews.html" . }}
+          </div>
         </div>
         {{ partial "components/last-updated.html" . }}
         {{ .Scratch.Set "reversePagination" true }}
@@ -46,5 +47,9 @@
         {{ partial "components/comments.html" . }}
       </main>
     </article>
+        <div class="hx-mt-8 hx-flex hx-justify-end hx-pv-footer">
+          {{ partial "components/pageviews.html" . }}
+        </div>
+
   </div>
 {{ end }}
