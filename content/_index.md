@@ -1,5 +1,5 @@
 ---
-title: Welcome
+title: 欢迎来到 Dumb fox's Space
 layout: hextra-home
 ---
 
@@ -14,24 +14,24 @@ layout: hextra-home
 <div class="hx-mt-6"></div>
 
 
-<div class="hx:mt-12 hx:mb-10"> 
+<div class="hx:mt-12 hx:mb-10">
 {{< hextra/hero-headline >}}
-  创建现代化网站&nbsp;<br class="hx:sm:block hx:hidden" />由 Markdown 和 Hugo 驱动
+  Dumb fox's Space&nbsp;<br class="hx:sm:block hx:hidden" />记录学习生活的点点滴滴
 {{< /hextra/hero-headline >}}
 </div>
 
 <div class="hx-mt-6"></div>
 
 <div class="hx:mb-6">
-{{< hextra/hero-button text="查看文档" link="docs" >}}
+{{< hextra/hero-button text="开始探索" link="docs" >}}
 </div>
 
 <div class="hx-mt-6"></div>
 
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
-    title="知识库"
-    subtitle="结构化的长期内容，按主题组织。"
+    title="文档中心"
+    subtitle="系统化的学习笔记与技术文档，持续更新中。"
     class="hx-aspect-auto md:hx-aspect-[1.1/1] max-md:hx-min-h-[340px]"
     image="/images/contents.webp"
     imageClass="hx-top-[40%] hx-left-[24px] hx-w-[180%] sm:hx-w-[110%] dark:hx-opacity-80"
@@ -40,7 +40,7 @@ layout: hextra-home
   >}}
   {{< hextra/feature-card
     title="项目展示"
-    subtitle="一些有代表性的作品与案例。"
+    subtitle="记录一些有趣的项目和实践经验。"
     class="hx-aspect-auto md:hx-aspect-[1.1/1] max-lg:hx-min-h-[340px]"
     image="/images/showcase.webp"
     imageClass="hx-top-[40%] hx-left-[36px] hx-w-[180%] sm:hx-w-[110%] dark:hx-opacity-80"
@@ -48,8 +48,8 @@ layout: hextra-home
     link="/showcase"
   >}}
   {{< hextra/feature-card
-    title="技术博客"
-    subtitle="记录日常与思考，支持 RSS 订阅。"
+    title="随笔博客"
+    subtitle="分享日常思考与技术心得，欢迎交流讨论。"
     class="hx-aspect-auto md:hx-aspect-[1.1/1] max-md:hx-min-h-[340px]"
     image="/images/blog.webp"
     imageClass="hx-top-[40%] hx-left-[36px] hx-w-[110%] sm:hx-w-[110%] dark:hx-opacity-80"
