@@ -285,7 +285,7 @@ input:checked + .select .slider > div {
   }
 }
 
-/* 
+/*
  * Hextra主题TOC滚动条优化样式
  * 完全隐藏滚动条但保持滚动功能
  * 包含跨浏览器兼容性和移动端适配
@@ -552,3 +552,28 @@ input:checked + .select .slider > div {
   border-color: blue;
 }
 */
+
+
+/* Pageviews: minimal pill chip (subdued) */
+.hx-pv-chip{display:inline-flex;align-items:center;gap:.35rem;padding:.1rem .45rem;border:1px solid rgba(229,231,235,.7);border-radius:999px;color:var(--text-color);background:rgba(148,163,184,.04);line-height:1;opacity:.9;font-size:.75rem}
+.dark .hx-pv-chip{border-color:rgba(55,65,81,.45);background:rgba(55,65,81,.18)}
+/* no hover emphasis to avoid drawing attention */
+/* add safe edge padding for footer-right aligned chip */
+.hx-pv-footer{padding-right: .85rem}
+@media (max-width: 640px){.hx-pv-footer{padding-right: .5rem}}
+
+.hx-pv-icon{opacity:.6}
+.hx-pv-label{display:none}
+@media (max-width: 640px){.hx-pv-icon{display:none}}
+.hx-pv-count{font-variant-numeric:tabular-nums}
+@media (max-width: 640px){.hx-pv-chip{font-size:.7275rem}}
+.hx-pv-count.is-bump{animation:hx-pv-bump .12s ease-out}
+/* Hidden-by-default trick: reveal with Konami key or URL hash */
+.hx-pv-hidden{opacity:0;pointer-events:none;transition:opacity .2s ease}
+html.hx-pv-reveal .hx-pv-hidden{opacity:.9;pointer-events:auto}
+:target ~ .hx-pv-footer .hx-pv-hidden{opacity:.9;pointer-events:auto}
+
+/* explicit 10px bottom margin utility for pv chip */
+.hx-pv-mb-10{margin-bottom:10px}
+
+@keyframes hx-pv-bump{50%{transform:scale(1.06)}}
