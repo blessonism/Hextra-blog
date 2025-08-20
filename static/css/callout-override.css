@@ -1,0 +1,302 @@
+/* ========================================
+   Hextra Callout 基线对齐强制修复
+   独立 CSS 文件 - 最高优先级
+   ======================================== */
+
+/* 
+ * 这个文件专门用于修复 Hextra callout 组件的基线对齐问题
+ * 使用最高优先级的选择器来覆盖 Tailwind CSS
+ */
+
+/* ========================================
+   核心修复：移除内容区域的上边距
+   ======================================== */
+
+/* 使用最高特异性的选择器 */
+html body div.hx-overflow-x-auto.hx-mt-6.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0.hx-leading-7 > div.hx-mt-6.hx-leading-7.first\:hx-mt-0 {
+  margin-top: 0 !important;
+}
+
+/* 备用选择器 1 */
+div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"] div[class*="hx-mt-6"][class*="hx-leading-7"] {
+  margin-top: 0 !important;
+}
+
+/* 备用选择器 2 */
+.hx-overflow-x-auto.hx-flex.hx-rounded-lg .hx-mt-6.hx-leading-7 {
+  margin-top: 0 !important;
+}
+
+/* 通用覆盖 */
+.hx-mt-6.hx-leading-7.first\:hx-mt-0 {
+  margin-top: 0 !important;
+}
+
+/* ========================================
+   容器基线对齐
+   ======================================== */
+
+/* 主容器使用基线对齐 */
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 {
+  align-items: baseline !important;
+}
+
+/* 图标容器微调 */
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div:first-child {
+  margin-top: 0.1rem !important;
+}
+
+/* ========================================
+   不同内容类型的精确对齐
+   ======================================== */
+
+/* 标题对齐 - 区分首行标题和非首行标题 */
+
+/* 首行标题：与图标基线对齐，但保持适当间距 */
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full > div.hx-leading-7 > h1:first-child,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full > div.hx-leading-7 > h2:first-child,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full > div.hx-leading-7 > h3:first-child {
+  /* 首行大标题：基线对齐但保持视觉美观 */
+  margin-top: -0.05rem !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.3 !important;
+}
+
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full > div.hx-leading-7 > h4:first-child,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full > div.hx-leading-7 > h5:first-child,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full > div.hx-leading-7 > h6:first-child {
+  /* 首行小标题：更精确的基线对齐 */
+  margin-top: -0.1rem !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.4 !important;
+}
+
+/* 非首行标题：保持正常的上下间距 */
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h1:not(:first-child),
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h2:not(:first-child),
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h3:not(:first-child) {
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.3 !important;
+}
+
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h4:not(:first-child),
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h5:not(:first-child),
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h6:not(:first-child) {
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.4 !important;
+}
+
+/* 列表对齐 - 区分首行列表和非首行列表 */
+
+/* 首行列表：与图标基线对齐 */
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full > div.hx-leading-7 > ul:first-child,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full > div.hx-leading-7 > ol:first-child {
+  margin-top: -0.05rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* 非首行列表：保持正常间距 */
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 ul:not(:first-child),
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 ol:not(:first-child) {
+  margin-top: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* 段落对齐 - 区分首行段落和非首行段落 */
+
+/* 首行段落：与图标基线对齐 */
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full > div.hx-leading-7 > p:first-child {
+  margin-top: 0 !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.5 !important;
+}
+
+/* 非首行段落：保持正常间距 */
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 p:not(:first-child) {
+  margin-top: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.5 !important;
+}
+
+/* ========================================
+   元素间协调间距
+   ======================================== */
+
+/* 标题后跟段落 */
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h1 + p,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h2 + p,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h3 + p {
+  margin-top: 0.5rem !important;
+}
+
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h4 + p,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h5 + p,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h6 + p {
+  margin-top: 0.25rem !important;
+}
+
+/* 标题后跟列表 */
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h1 + ul,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h1 + ol,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h2 + ul,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h2 + ol,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h3 + ul,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 h3 + ol {
+  margin-top: 0.5rem !important;
+}
+
+/* 段落后跟标题 */
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 p + h1,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 p + h2,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 p + h3 {
+  margin-top: 1.5rem !important;
+}
+
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 p + h4,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 p + h5,
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 p + h6 {
+  margin-top: 1.25rem !important;
+}
+
+/* ========================================
+   代码块中的 Callout 组件修复
+   ======================================== */
+
+/*
+ * 当 callout 组件出现在代码块中时，需要特殊处理
+ * 代码块的样式（等宽字体、背景色等）会影响 callout 的渲染
+ */
+
+/* 代码块内的 callout 容器重置 */
+pre .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2,
+code .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2,
+.highlight .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2,
+.language-markdown .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 {
+  /* 重置字体为系统字体，避免继承等宽字体 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+
+  /* 重置行高 */
+  line-height: 1.5 !important;
+
+  /* 确保边框样式正确 */
+  border-style: solid !important;
+  border-width: 1px !important;
+
+  /* 确保圆角 */
+  border-radius: 0.5rem !important;
+
+  /* 确保内边距 */
+  padding: 0.5rem !important;
+
+  /* 确保外边距 */
+  margin: 1rem 0 !important;
+
+  /* 确保不继承代码块的背景色 */
+  background: var(--callout-bg, #f8fafc) !important;
+
+  /* 确保边框颜色正确 */
+  border-color: var(--callout-border, #e2e8f0) !important;
+
+  /* 重置文字颜色 */
+  color: var(--callout-fg, #1e293b) !important;
+}
+
+/* 代码块内 callout 的图标容器 */
+pre .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div:first-child,
+code .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div:first-child,
+.highlight .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div:first-child,
+.language-markdown .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div:first-child {
+  /* 确保图标正确显示 */
+  font-family: inherit !important;
+  font-size: 1.25rem !important;
+  line-height: 1 !important;
+}
+
+/* 代码块内 callout 的内容区域 */
+pre .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full,
+code .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full,
+.highlight .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full,
+.language-markdown .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full {
+  /* 重置字体 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+
+  /* 重置行高 */
+  line-height: 1.5 !important;
+}
+
+/* 代码块内 callout 的文本内容 */
+pre .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 *,
+code .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 *,
+.highlight .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 *,
+.language-markdown .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 * {
+  /* 重置字体，避免继承等宽字体 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+
+  /* 重置行高 */
+  line-height: 1.5 !important;
+
+  /* 确保文字颜色正确 */
+  color: inherit !important;
+}
+
+/* ========================================
+   特殊情况：纯文本代码块中的 callout
+   ======================================== */
+
+/*
+ * 对于在纯文本代码块中显示的 callout shortcode（作为示例代码）
+ * 这些不应该被渲染为实际的 callout 组件
+ * 但如果被渲染了，需要确保样式正确
+ */
+
+/* 确保代码块中的 callout 不会破坏代码块的布局 */
+pre code .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 {
+  /* 保持代码块的等宽字体用于 shortcode 文本 */
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+
+  /* 调整尺寸以适应代码块 */
+  font-size: 0.875rem !important;
+
+  /* 减少内边距以适应代码块 */
+  padding: 0.25rem 0.5rem !important;
+
+  /* 调整外边距 */
+  margin: 0.5rem 0 !important;
+
+  /* 确保不会溢出代码块 */
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+/* ========================================
+   调试辅助（启用以验证 CSS 是否生效）
+   ======================================== */
+
+/* 禁用调试样式，应用真正的修复 */
+/*
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 {
+  border: 3px solid red !important;
+}
+
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div:first-child {
+  background: rgba(255, 0, 0, 0.3) !important;
+}
+
+div.hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full {
+  background: rgba(0, 255, 0, 0.3) !important;
+}
+
+pre .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 {
+  border: 3px solid blue !important;
+}
+
+code .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 {
+  border: 3px solid orange !important;
+}
+
+.highlight .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border.hx-py-2 {
+  border: 3px solid purple !important;
+}
+*/

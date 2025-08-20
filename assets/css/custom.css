@@ -553,6 +553,11 @@ input:checked + .select .slider > div {
 }
 */
 
+/* ========================================
+   导入 Callout 对齐修复样式
+   ======================================== */
+@import "callout-fix.css";
+
 
 /* Pageviews: minimal pill chip (subdued) */
 .hx-pv-chip{display:inline-flex;align-items:center;gap:.35rem;padding:.1rem .45rem;border:1px solid rgba(229,231,235,.7);border-radius:999px;color:var(--text-color);background:rgba(148,163,184,.04);line-height:1;opacity:.9;font-size:.75rem}
@@ -577,3 +582,16 @@ html.hx-pv-reveal .hx-pv-hidden{opacity:.9;pointer-events:auto}
 .hx-pv-mb-10{margin-bottom:10px}
 
 @keyframes hx-pv-bump{50%{transform:scale(1.06)}}
+
+
+/* Tabs panel: reduce top margin for first heading to keep big title with tight spacing */
+.content :where(.hx-tabs,.hx-tabs-panel,.hextra-tabs,.hextra-tabs-panel,.tabs,.tabs-panel)
+  :is(h1,h2,h3,h4,h5,h6):first-child {
+  margin-top: 0.25rem; /* tighter top spacing */
+}
+
+/* Slightly reduce bottom margin for first big headings inside tabs */
+.content :where(.hx-tabs,.hx-tabs-panel,.hextra-tabs,.hextra-tabs-panel,.tabs,.tabs-panel)
+  :is(h1,h2,h3):first-child {
+  margin-bottom: 0.5rem;
+}
