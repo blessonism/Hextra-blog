@@ -1,0 +1,579 @@
+/* ========================================
+   Hextra Callout 组件对齐修复
+   ======================================== */
+
+/* 
+ * 修复 Hextra callout 组件中图标与不同内容类型的对齐问题
+ * 主要解决列表、标题等元素与图标的垂直对齐不一致问题
+ */
+
+/*
+ * 注意：Hextra 实际使用的是基于 Tailwind CSS 类的结构，
+ * 而不是 .markdown-alert 类名。实际的修复规则在文件底部。
+ * 以下规则保留作为兼容性备用方案。
+ */
+
+/* GitHub 风格的 alert 容器基础样式（兼容性备用） */
+.markdown-alert {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 0.75rem !important;
+  padding: 1rem !important;
+  margin: 1rem 0 !important;
+  border-radius: 0.5rem !important;
+  border-left: 4px solid !important;
+}
+
+/* 图标容器样式（兼容性备用） */
+.markdown-alert > .markdown-alert-title {
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-top: 0.1rem !important;
+}
+
+/* 内容容器样式（兼容性备用） */
+.markdown-alert > .markdown-alert-content {
+  flex: 1 !important;
+  margin: 0 !important;
+}
+
+/* ========================================
+   修复第一个元素的上边距问题和基线对齐
+   ======================================== */
+
+.markdown-alert p:first-child,
+.markdown-alert ul:first-child,
+.markdown-alert ol:first-child,
+.markdown-alert h1:first-child,
+.markdown-alert h2:first-child,
+.markdown-alert h3:first-child,
+.markdown-alert h4:first-child,
+.markdown-alert h5:first-child,
+.markdown-alert h6:first-child,
+.markdown-alert blockquote:first-child,
+.markdown-alert pre:first-child,
+.markdown-alert div:first-child {
+  margin-top: 0 !important;
+}
+
+/* ========================================
+   首行元素基线对齐优化
+   ======================================== */
+
+/* 首行标题的基线对齐 */
+.markdown-alert h1:first-child,
+.markdown-alert h2:first-child,
+.markdown-alert h3:first-child,
+.markdown-alert h4:first-child,
+.markdown-alert h5:first-child,
+.markdown-alert h6:first-child {
+  /* 确保标题的基线与图标对齐 */
+  line-height: 1.3 !important;
+  /* 微调标题位置以匹配图标基线 */
+  margin-top: -0.05rem !important;
+}
+
+/* 首行列表的基线对齐 */
+.markdown-alert ul:first-child,
+.markdown-alert ol:first-child {
+  /* 调整列表容器以确保第一个列表项与图标基线对齐 */
+  margin-top: -0.1rem !important;
+}
+
+/* 首行列表项的基线对齐 */
+.markdown-alert ul:first-child > li:first-child,
+.markdown-alert ol:first-child > li:first-child {
+  /* 确保第一个列表项的文本与图标基线对齐 */
+  line-height: 1.4 !important;
+  /* 微调第一个列表项的位置 */
+  margin-top: 0.05rem !important;
+}
+
+/* 首行段落的基线对齐 */
+.markdown-alert p:first-child {
+  /* 确保段落文本与图标基线对齐 */
+  line-height: 1.5 !important;
+  /* 段落通常不需要额外调整 */
+  margin-top: 0 !important;
+}
+
+/* ========================================
+   不同字体大小的基线对齐微调
+   ======================================== */
+
+/* 大标题的特殊处理 */
+.markdown-alert h1:first-child {
+  /* H1 标题通常较大，需要更多的基线调整 */
+  margin-top: -0.1rem !important;
+  line-height: 1.2 !important;
+}
+
+.markdown-alert h2:first-child {
+  /* H2 标题的基线调整 */
+  margin-top: -0.08rem !important;
+  line-height: 1.25 !important;
+}
+
+.markdown-alert h3:first-child {
+  /* H3 标题的基线调整 */
+  margin-top: -0.06rem !important;
+  line-height: 1.3 !important;
+}
+
+.markdown-alert h4:first-child,
+.markdown-alert h5:first-child,
+.markdown-alert h6:first-child {
+  /* 较小标题的基线调整 */
+  margin-top: -0.04rem !important;
+  line-height: 1.35 !important;
+}
+
+/* ========================================
+   列表元素对齐修复
+   ======================================== */
+
+.markdown-alert ul,
+.markdown-alert ol {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
+  padding-left: 1.5rem !important;
+  /* 通过 line-height 控制列表项间距，而不是 margin */
+  line-height: 1.4 !important;
+}
+
+.markdown-alert ul li,
+.markdown-alert ol li {
+  /* 移除列表项的额外边距，避免间距过大 */
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  /* 使用较小的 line-height 保持紧凑间距 */
+  line-height: 1.4 !important;
+  /* 确保列表项内容正确对齐 */
+  padding-top: 0.1rem !important;
+  padding-bottom: 0.1rem !important;
+}
+
+/* 嵌套列表样式 */
+.markdown-alert ul ul,
+.markdown-alert ol ol,
+.markdown-alert ul ol,
+.markdown-alert ol ul {
+  /* 嵌套列表减少上下边距，避免间距累积 */
+  margin-top: 0.1rem !important;
+  margin-bottom: 0.1rem !important;
+  /* 嵌套列表使用更紧凑的行高 */
+  line-height: 1.3 !important;
+}
+
+/* 嵌套列表项的间距控制 */
+.markdown-alert ul ul li,
+.markdown-alert ol ol li,
+.markdown-alert ul ol li,
+.markdown-alert ol ul li {
+  /* 嵌套列表项使用更紧凑的间距 */
+  padding-top: 0.05rem !important;
+  padding-bottom: 0.05rem !important;
+  line-height: 1.3 !important;
+}
+
+/* 列表项之间的分隔优化 */
+.markdown-alert li + li {
+  /* 相邻列表项之间的最小间距 */
+  margin-top: 0.05rem !important;
+}
+
+/* 列表与其他元素之间的间距 */
+.markdown-alert ul + p,
+.markdown-alert ol + p,
+.markdown-alert p + ul,
+.markdown-alert p + ol {
+  /* 列表与段落之间的间距 */
+  margin-top: 0.3rem !important;
+}
+
+/* ========================================
+   标题元素对齐修复
+   ======================================== */
+
+.markdown-alert h1,
+.markdown-alert h2,
+.markdown-alert h3,
+.markdown-alert h4,
+.markdown-alert h5,
+.markdown-alert h6 {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.25rem !important;
+  line-height: 1.4 !important;
+  font-weight: 600 !important;
+}
+
+/* 第一个标题特殊处理 */
+.markdown-alert h1:first-child,
+.markdown-alert h2:first-child,
+.markdown-alert h3:first-child,
+.markdown-alert h4:first-child,
+.markdown-alert h5:first-child,
+.markdown-alert h6:first-child {
+  margin-top: 0 !important;
+}
+
+/* ========================================
+   段落和其他元素对齐修复
+   ======================================== */
+
+.markdown-alert p {
+  /* 减少段落间距，与列表间距保持一致 */
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.4rem !important;
+  line-height: 1.5 !important;
+}
+
+.markdown-alert p:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-alert p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* 列表项内的段落特殊处理 */
+.markdown-alert li p {
+  /* 列表项内的段落使用更紧凑的间距 */
+  margin-top: 0.1rem !important;
+  margin-bottom: 0.1rem !important;
+  line-height: 1.4 !important;
+}
+
+.markdown-alert li p:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-alert li p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* ========================================
+   代码块和引用块对齐修复
+   ======================================== */
+
+.markdown-alert pre,
+.markdown-alert code {
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.markdown-alert blockquote {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  padding-left: 1rem !important;
+  border-left: 3px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ========================================
+   不同类型 callout 的颜色主题
+   ======================================== */
+
+/* Info callout */
+.markdown-alert[data-type="info"],
+.markdown-alert.markdown-alert-info {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+  border-left-color: #3b82f6 !important;
+}
+
+/* Warning callout */
+.markdown-alert[data-type="warning"],
+.markdown-alert.markdown-alert-warning {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  border-left-color: #f59e0b !important;
+}
+
+/* Error callout */
+.markdown-alert[data-type="error"],
+.markdown-alert.markdown-alert-error {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  border-left-color: #ef4444 !important;
+}
+
+/* Success callout */
+.markdown-alert[data-type="success"],
+.markdown-alert.markdown-alert-success {
+  background-color: rgba(34, 197, 94, 0.1) !important;
+  border-left-color: #22c55e !important;
+}
+
+/* ========================================
+   深色模式适配
+   ======================================== */
+
+.dark .markdown-alert[data-type="info"],
+.dark .markdown-alert.markdown-alert-info {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+}
+
+.dark .markdown-alert[data-type="warning"],
+.dark .markdown-alert.markdown-alert-warning {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+}
+
+.dark .markdown-alert[data-type="error"],
+.dark .markdown-alert.markdown-alert-error {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+}
+
+.dark .markdown-alert[data-type="success"],
+.dark .markdown-alert.markdown-alert-success {
+  background-color: rgba(34, 197, 94, 0.15) !important;
+}
+
+/* ========================================
+   响应式设计
+   ======================================== */
+
+@media (max-width: 768px) {
+  .markdown-alert {
+    padding: 0.75rem !important;
+    gap: 0.5rem !important;
+    /* 移动端保持基线对齐 */
+    align-items: baseline !important;
+  }
+
+  .markdown-alert ul,
+  .markdown-alert ol {
+    padding-left: 1.25rem !important;
+  }
+
+  /* 移动端图标容器的基线调整 */
+  .markdown-alert > .markdown-alert-title {
+    /* 移动端可能需要稍微调整图标位置 */
+    margin-top: 0.08rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* 移动端首行元素的微调 */
+  .markdown-alert h1:first-child,
+  .markdown-alert h2:first-child,
+  .markdown-alert h3:first-child {
+    /* 移动端标题的基线调整可能需要稍微不同 */
+    margin-top: -0.03rem !important;
+  }
+}
+
+/* ========================================
+   兼容性和备用方案
+   ======================================== */
+
+/* 如果 markdown-alert 类不存在，使用通用的 callout 类 */
+.callout,
+.hextra-callout,
+[class*="callout"] {
+  display: flex !important;
+  /* 兼容性 callout 也使用基线对齐 */
+  align-items: baseline !important;
+  gap: 0.75rem !important;
+}
+
+.callout > *:first-child,
+.hextra-callout > *:first-child,
+[class*="callout"] > *:first-child {
+  margin-top: 0 !important;
+}
+
+/* ========================================
+   调试辅助样式（开发时可启用）
+   ======================================== */
+
+/* ========================================
+   基于实际 HTML 结构的 Callout 对齐修复
+   ======================================== */
+
+/* Hextra callout 的实际选择器 - 主容器 */
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 {
+  /* 使用基线对齐让图标与首行内容对齐 */
+  align-items: baseline !important;
+}
+
+/* 图标容器 - 基于实际的类名 */
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div:first-child {
+  /* 图标容器的基线调整 */
+  margin-top: 0.1rem !important;
+}
+
+/* 图标本身 */
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div:first-child > div.hx-select-none.hx-text-xl {
+  /* 确保图标在基线上正确定位 */
+  line-height: 1.2 !important;
+}
+
+/* 内容容器 */
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 {
+  /* 内容容器不需要额外的 margin */
+  margin-top: 0 !important;
+}
+
+/* 内容容器内的第一个元素 */
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div:first-child {
+  /* 移除第一个内容元素的上边距，让它与图标基线对齐 */
+  margin-top: 0 !important;
+}
+
+/* ========================================
+   针对不同首行内容类型的精确对齐
+   ======================================== */
+
+/* 针对内容容器内的实际内容元素 - 关键修复！ */
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 {
+  /* 强制移除 Tailwind 的 hx-mt-6 margin，这是对齐问题的根本原因 */
+  margin-top: 0 !important;
+}
+
+/* 更具体的选择器来覆盖 Tailwind 的 hx-mt-6 类 */
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-mt-6.hx-leading-7 {
+  /* 这是最关键的修复：移除内容容器的上边距 */
+  margin-top: 0 !important;
+}
+
+/* 当首行是段落时（包含在内容容器中） */
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 > p:first-child {
+  /* 段落的基线调整 */
+  margin-top: 0 !important;
+  line-height: 1.5 !important;
+}
+
+/* 当首行是标题时（包含在内容容器中） */
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 > h1:first-child,
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 > h2:first-child,
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 > h3:first-child,
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 > h4:first-child,
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 > h5:first-child,
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 > h6:first-child {
+  /* 标题的基线调整 */
+  margin-top: -0.1rem !important;
+  line-height: 1.3 !important;
+}
+
+/* 当首行是列表时（包含在内容容器中） */
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 > ul:first-child,
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 > ol:first-child {
+  /* 列表容器的基线调整 */
+  margin-top: -0.05rem !important;
+}
+
+/* 当首行是列表项时（包含在内容容器中） */
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 > ul:first-child > li:first-child,
+div.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0 > div.hx-leading-7 > ol:first-child > li:first-child {
+  /* 第一个列表项的基线调整 */
+  margin-top: 0.05rem !important;
+  line-height: 1.4 !important;
+}
+
+/* ========================================
+   通用备用选择器（以防类名变化）
+   ======================================== */
+
+/* 通用的 Hextra callout 容器选择器 */
+div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  /* 确保使用基线对齐 */
+  align-items: baseline !important;
+}
+
+/* 通用的图标容器选择器 */
+div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] > div:first-child {
+  /* 图标容器的基线调整 */
+  margin-top: 0.1rem !important;
+}
+
+/* 通用的内容容器选择器 */
+div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] > div[class*="hx-w-full"] {
+  /* 内容容器不需要额外的 margin */
+  margin-top: 0 !important;
+}
+
+/* 强制覆盖 Tailwind 的 hx-mt-6 类 */
+div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] > div[class*="hx-w-full"] > div[class*="hx-mt-6"] {
+  /* 这是关键修复：强制移除内容的上边距 */
+  margin-top: 0 !important;
+}
+
+/* 使用属性选择器确保覆盖所有可能的 margin-top 类 */
+div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] [class*="hx-mt-"] {
+  /* 移除所有可能导致对齐问题的上边距 */
+  margin-top: 0 !important;
+}
+
+/* ========================================
+   激进修复方案：直接针对问题类名
+   ======================================== */
+
+/* 直接覆盖 Tailwind 的 hx-mt-6 类在 callout 内的效果 */
+.hx-mt-6 {
+  /* 在 callout 容器内时，移除上边距 */
+  margin-top: 0 !important;
+}
+
+/* 更具体的覆盖 */
+div.hx-overflow-x-auto.hx-mt-6.hx-flex.hx-rounded-lg.hx-border.hx-py-2 .hx-mt-6 {
+  margin-top: 0 !important;
+}
+
+/* 最激进的方案：直接针对完整的类名组合 */
+.hx-overflow-x-auto.hx-mt-6.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > .hx-w-full.hx-min-w-0.hx-leading-7 > .hx-mt-6.hx-leading-7 {
+  margin-top: 0 !important;
+}
+
+/* ========================================
+   终极修复方案：使用 CSS 特异性最高的选择器
+   ======================================== */
+
+/* 使用 ID 级别的特异性来确保覆盖 */
+html body div.hx-overflow-x-auto.hx-mt-6.hx-flex.hx-rounded-lg.hx-border.hx-py-2 > div.hx-w-full.hx-min-w-0.hx-leading-7 > div.hx-mt-6.hx-leading-7.first\:hx-mt-0 {
+  margin-top: 0 !important;
+}
+
+/* 更简单但高特异性的选择器 */
+html body [class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"] [class*="hx-mt-6"] {
+  margin-top: 0 !important;
+}
+
+/* 使用 :where() 来降低特异性但确保应用 */
+div:where(.hx-overflow-x-auto, [class*="hx-overflow-x-auto"]) [class*="hx-mt-"] {
+  margin-top: 0 !important;
+}
+
+/* ========================================
+   最终解决方案：使用 CSS 自定义属性
+   ======================================== */
+
+/* 定义 CSS 变量 */
+:root {
+  --callout-content-margin-top: 0;
+}
+
+/* 使用更强的选择器和 CSS 变量 */
+div[class~="hx-overflow-x-auto"][class~="hx-flex"][class~="hx-rounded-lg"] {
+  align-items: baseline !important;
+}
+
+div[class~="hx-overflow-x-auto"][class~="hx-flex"][class~="hx-rounded-lg"] div[class~="hx-w-full"] div[class~="hx-leading-7"] {
+  margin-top: var(--callout-content-margin-top) !important;
+}
+
+/* 使用属性选择器的精确匹配 */
+div[class~="hx-mt-6"][class~="hx-leading-7"] {
+  margin-top: 0 !important;
+}
+
+/* 最后的杀手锏：使用 CSS 层叠 */
+@layer callout-fix {
+  .hx-mt-6 {
+    margin-top: 0 !important;
+  }
+
+  [class*="hx-mt-"] {
+    margin-top: 0 !important;
+  }
+}
