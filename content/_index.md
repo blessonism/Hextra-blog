@@ -16,7 +16,7 @@ layout: hextra-home
 
 <div class="hx:mt-12 hx:mb-10">
 {{< hextra/hero-headline >}}
-  Dumb fox's Space&nbsp;<br class="hx:sm:block hx:hidden" />记录学习生活的点点滴滴
+  <div style="line-height: 1.2;">Dumb fox's Space&nbsp;<br class="hx:sm:block hx:hidden" />记录学习生活的点点滴滴</div>
 {{< /hextra/hero-headline >}}
 </div>
 
