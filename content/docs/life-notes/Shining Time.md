@@ -1,6 +1,8 @@
 ---
 title: Shining Time✨
+slug: shining-time
 type: docs
+draft: true
 sidebar:
   open: true
 toc: true
