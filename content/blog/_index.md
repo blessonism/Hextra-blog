@@ -2,4 +2,6 @@
 title: Blog
 ---
 
-这里是博客分区，用于发布日常更新与随笔。
+<div style="text-align: center;">
+「生活」 「随笔」 「记录」 「分享」
+</div>
