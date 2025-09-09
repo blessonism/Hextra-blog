@@ -1,0 +1,14 @@
+{{- $columns := .Get "columns" | default "auto" -}}
+{{- $gap := .Get "gap" | default "16px" -}}
+{{- $minWidth := .Get "min-width" | default "260px" -}}
+
+<div class="linkcard-grid" style="
+  {{- if eq $columns "auto" -}}
+    grid-template-columns: repeat(auto-fit, minmax({{ $minWidth }}, 1fr));
+  {{- else -}}
+    grid-template-columns: repeat({{ $columns }}, 1fr);
+  {{- end -}}
+  gap: {{ $gap }};
+">
+  {{ .Inner }}
+</div>

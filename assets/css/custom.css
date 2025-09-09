@@ -1,4 +1,151 @@
 
+/* ========================================
+   Callout 自定义颜色主题
+   ======================================== */
+
+/* 紫色主题（对齐 Hextra 原生：bg-purple-50 + border-purple-200） */
+.callout-purple .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.callout-purple div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.callout-purple div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: #faf5ff !important; /* purple-50 */
+  border-color: #e9d5ff !important;     /* purple-200 */
+}
+
+/* 靛蓝主题 */
+.callout-indigo .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.callout-indigo div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.callout-indigo div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: #eef2ff !important; /* indigo-50 */
+  border-color: #c7d2fe !important;     /* indigo-200 */
+}
+
+/* 粉色主题 */
+.callout-pink .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.callout-pink div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.callout-pink div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: #fdf2f8 !important; /* pink-50 */
+  border-color: #fbcfe8 !important;     /* pink-200 */
+}
+
+/* 青色主题 */
+.callout-teal .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.callout-teal div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.callout-teal div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: #f0fdfa !important; /* teal-50 */
+  border-color: #a7f3d0 !important;     /* teal 边框柔和：emerald-200 近似更柔和 */
+}
+
+/* 橙色主题 */
+.callout-orange .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.callout-orange div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.callout-orange div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: #fff7ed !important; /* orange-50 */
+  border-color: #fed7aa !important;     /* orange-200 */
+}
+
+/* 灰色主题（中性：整体边框为中性色，仅左侧为强调色） */
+.callout-gray .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.callout-gray div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.callout-gray div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: rgba(107, 114, 128, 0.10) !important; /* #6b7280 @10% */
+  border-color: var(--callout-border, #e2e8f0) !important; /* 中性边框 */
+
+}
+
+/* 经典色系：与 Hextra 原生类型一致（Tailwind 500） */
+/* 蓝色（info） */
+.callout-blue .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.callout-blue div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.callout-blue div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: #DBEAFE !important;  /* blue-50 */
+  border-color: var(--callout-border, #BFDBFE) !important; /* 中性整体边框 */
+}
+
+/* 绿色（success） */
+.callout-green .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.callout-green div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.callout-green div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: #DCFCE7 !important; /* green-50 */
+  border-color: var(--callout-border, #e2e8f0) !important;
+}
+
+/* 黄色（warning/amber） */
+.callout-yellow .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.callout-yellow div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.callout-yellow div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: #fffbeb !important; /* amber-50 */
+  border-color: var(--callout-border, #FEF9C3) !important;
+}
+
+/* 红色（danger/error） */
+.callout-red .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.callout-red div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.callout-red div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: #FEE2E2 !important; /* red-50 */
+  border-color: var(--callout-border, #FECACA) !important;
+}
+
+/* 深色模式适配 */
+.dark .callout-purple .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.dark .callout-purple div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.dark .callout-purple div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: rgba(147, 51, 234, 0.15) !important;
+}
+
+.dark .callout-indigo .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.dark .callout-indigo div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.dark .callout-indigo div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+.dark .callout-pink .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.dark .callout-pink div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.dark .callout-pink div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: rgba(236, 72, 153, 0.15) !important;
+}
+
+.dark .callout-teal .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.dark .callout-teal div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.dark .callout-teal div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: rgba(20, 184, 166, 0.15) !important;
+}
+
+.dark .callout-orange .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.dark .callout-orange div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.dark .callout-orange div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: rgba(249, 115, 22, 0.15) !important;
+}
+
+.dark .callout-gray .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.dark .callout-gray div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.dark .callout-gray div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: rgba(107, 114, 128, 0.15) !important;
+}
+
+.dark .callout-blue .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.dark .callout-blue div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.dark .callout-blue div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+}
+
+.dark .callout-green .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.dark .callout-green div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.dark .callout-green div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: rgba(34, 197, 94, 0.15) !important;
+}
+
+.dark .callout-yellow .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.dark .callout-yellow div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.dark .callout-yellow div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+}
+
+.dark .callout-red .hx-overflow-x-auto.hx-flex.hx-rounded-lg.hx-border,
+.dark .callout-red div[class*="hx-overflow-x-auto"][class*="hx-flex"][class*="hx-rounded-lg"],
+.dark .callout-red div[class*="hx-flex"][class*="hx-rounded-lg"][class*="hx-border"] {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+}
+
 :root {
   --background-color: #dbe6ef;
   --text-color: rgba(107, 114, 128, 1);
@@ -554,6 +701,90 @@ input:checked + .select .slider > div {
 */
 
 /* ========================================
+   Callout 段首缩进功能 - 内容缩进，标识不缩进
+   ======================================== */
+
+/* 基于Hextra实际结构：对所有内容段落应用缩进 */
+.text-indent-1 div.hx-w-full.hx-min-w-0 > div.hx-leading-7 p { text-indent: 1em !important; }
+.text-indent-2 div.hx-w-full.hx-min-w-0 > div.hx-leading-7 p { text-indent: 2em !important; }
+.text-indent-3 div.hx-w-full.hx-min-w-0 > div.hx-leading-7 p { text-indent: 3em !important; }
+.text-indent-4 div.hx-w-full.hx-min-w-0 > div.hx-leading-7 p { text-indent: 4em !important; }
+
+/* 更通用的选择器作为备用 */
+.text-indent-1 div[class*="hx-w-full"] div[class*="hx-leading"] p { text-indent: 1em !important; }
+.text-indent-2 div[class*="hx-w-full"] div[class*="hx-leading"] p { text-indent: 2em !important; }
+.text-indent-3 div[class*="hx-w-full"] div[class*="hx-leading"] p { text-indent: 3em !important; }
+.text-indent-4 div[class*="hx-w-full"] div[class*="hx-leading"] p { text-indent: 4em !important; }
+
+/* 使用自定义类来标记不需要缩进的标识文字 */
+.callout-title { text-indent: 0 !important; }
+
+/* 或者通过JavaScript动态添加类，但这里先提供CSS方案 */
+/* 用户可以手动为标识段落添加 callout-title 类 */
+
+/* 对于普通内容（非Callout）的段落缩进 */
+.text-indent-1 p:not([class*="hx-"]):not(.markdown-alert-title) { text-indent: 1em !important; }
+.text-indent-2 p:not([class*="hx-"]):not(.markdown-alert-title) { text-indent: 2em !important; }
+.text-indent-3 p:not([class*="hx-"]):not(.markdown-alert-title) { text-indent: 3em !important; }
+.text-indent-4 p:not([class*="hx-"]):not(.markdown-alert-title) { text-indent: 4em !important; }
+
+/* 确保列表项内的段落也有缩进 */
+.text-indent-1 li p { text-indent: 1em !important; }
+.text-indent-2 li p { text-indent: 2em !important; }
+.text-indent-3 li p { text-indent: 3em !important; }
+.text-indent-4 li p { text-indent: 4em !important; }
+
+/* 引用块内的段落缩进 */
+.text-indent-1 blockquote p { text-indent: 1em !important; }
+.text-indent-2 blockquote p { text-indent: 2em !important; }
+.text-indent-3 blockquote p { text-indent: 3em !important; }
+.text-indent-4 blockquote p { text-indent: 4em !important; }
+
+/* 响应式缩进：移动端使用较小的缩进 */
+@media (max-width: 768px) {
+  /* 确保第一个段落在移动端也不缩进 */
+  .text-indent-1 div[class*="hx-leading"] p:first-child,
+  .text-indent-2 div[class*="hx-leading"] p:first-child,
+  .text-indent-3 div[class*="hx-leading"] p:first-child,
+  .text-indent-4 div[class*="hx-leading"] p:first-child {
+    text-indent: 0 !important;
+  }
+
+  /* 移动端缩进调整 */
+  .text-indent-1 div.hx-w-full.hx-min-w-0 > div.hx-leading-7 p:not(:first-child),
+  .text-indent-1 div[class*="hx-w-full"] div[class*="hx-leading"] p:not(:first-child),
+  .text-indent-1 p:not([class*="hx-"]):not(.markdown-alert-title),
+  .text-indent-1 li p,
+  .text-indent-1 blockquote p {
+    text-indent: 1em !important;
+  }
+
+  .text-indent-2 div.hx-w-full.hx-min-w-0 > div.hx-leading-7 p:not(:first-child),
+  .text-indent-2 div[class*="hx-w-full"] div[class*="hx-leading"] p:not(:first-child),
+  .text-indent-2 p:not([class*="hx-"]):not(.markdown-alert-title),
+  .text-indent-2 li p,
+  .text-indent-2 blockquote p {
+    text-indent: 1.5em !important;
+  }
+
+  .text-indent-3 div.hx-w-full.hx-min-w-0 > div.hx-leading-7 p:not(:first-child),
+  .text-indent-3 div[class*="hx-w-full"] div[class*="hx-leading"] p:not(:first-child),
+  .text-indent-3 p:not([class*="hx-"]):not(.markdown-alert-title),
+  .text-indent-3 li p,
+  .text-indent-3 blockquote p {
+    text-indent: 2em !important;
+  }
+
+  .text-indent-4 div.hx-w-full.hx-min-w-0 > div.hx-leading-7 p:not(:first-child),
+  .text-indent-4 div[class*="hx-w-full"] div[class*="hx-leading"] p:not(:first-child),
+  .text-indent-4 p:not([class*="hx-"]):not(.markdown-alert-title),
+  .text-indent-4 li p,
+  .text-indent-4 blockquote p {
+    text-indent: 2.5em !important;
+  }
+}
+
+/* ========================================
    导入 Callout 对齐修复样式
    ======================================== */
 @import "callout-fix.css";
@@ -594,4 +825,284 @@ html.hx-pv-reveal .hx-pv-hidden{opacity:.9;pointer-events:auto}
 .content :where(.hx-tabs,.hx-tabs-panel,.hextra-tabs,.hextra-tabs-panel,.tabs,.tabs-panel)
   :is(h1,h2,h3):first-child {
   margin-bottom: 0.5rem;
+}
+
+/* ========================================
+   LinkCard 专业级组件样式
+   ======================================== */
+
+/* CSS 变量定义 */
+:root {
+    --linkcard-bg: rgba(255, 255, 255, 0.8);
+    --linkcard-border: rgba(0, 0, 0, 0.08);
+    --linkcard-shadow: rgba(0, 0, 0, 0.04);
+    --linkcard-shadow-hover: rgba(0, 0, 0, 0.12);
+    --linkcard-text-primary: #1d1d1f;
+    --linkcard-text-secondary: #6e6e73;
+    --linkcard-accent-blue: #007AFF;
+    --linkcard-accent-blue-light: rgba(0, 122, 255, 0.1);
+}
+
+/* 深色模式变量 */
+[data-theme="dark"] {
+    --linkcard-bg: rgba(28, 28, 30, 0.8);
+    --linkcard-border: rgba(255, 255, 255, 0.1);
+    --linkcard-shadow: rgba(0, 0, 0, 0.3);
+    --linkcard-shadow-hover: rgba(0, 0, 0, 0.5);
+    --linkcard-text-primary: #f2f2f7;
+    --linkcard-text-secondary: #8e8e93;
+    --linkcard-accent-blue: #0A84FF;
+    --linkcard-accent-blue-light: rgba(10, 132, 255, 0.15);
+}
+
+/* 基础卡片样式 */
+.linkcard {
+    position: relative;
+    display: block;
+    padding: 16px;
+    margin-top: 16px;
+    background: var(--linkcard-bg);
+    border: 1px solid var(--linkcard-border);
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 2px var(--linkcard-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 第一个卡片不需要上边距 */
+.linkcard:first-child {
+    margin-top: 0;
+}
+
+.linkcard:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--linkcard-shadow-hover);
+    border-color: var(--linkcard-accent-blue);
+}
+
+/* 卡片内容布局 */
+.linkcard-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.linkcard-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+/* 图标系统 */
+.linkcard-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+/* 通用图标样式 */
+.linkcard-icon:not(.brand-icon) {
+    background: var(--linkcard-accent-blue-light);
+}
+
+.linkcard-icon:not(.brand-icon) svg {
+    width: 18px;
+    height: 18px;
+    color: var(--linkcard-accent-blue);
+}
+
+.linkcard:hover .linkcard-icon:not(.brand-icon) {
+    background: var(--linkcard-accent-blue);
+    transform: scale(1.05);
+}
+
+.linkcard:hover .linkcard-icon:not(.brand-icon) svg {
+    color: white;
+}
+
+/* 品牌图标特殊处理 */
+.brand-icon {
+    background: transparent !important;
+}
+
+.brand-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.linkcard:hover .brand-icon {
+    background: rgba(0, 0, 0, 0.04) !important;
+    transform: scale(1.05);
+}
+
+[data-theme="dark"] .linkcard:hover .brand-icon {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 品牌颜色定义 */
+.brand-github svg { color: #24292e; }
+.brand-bilibili svg { color: #00A1D6; }
+.brand-youtube svg { color: #FF0000; }
+.brand-zhihu svg { color: #0084FF; }
+.brand-sspai svg { color: #d71a1b; }
+.brand-twitter svg { color: #1DA1F2; }
+.brand-figma svg { color: #F24E1E; }
+.brand-apple svg { color: #000000; }
+
+[data-theme="dark"] .brand-apple svg { color: #ffffff; }
+
+/* 文字排版 */
+.linkcard-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--linkcard-text-primary);
+    margin: 0;
+    letter-spacing: -0.01em;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.linkcard-description {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--linkcard-text-secondary);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 状态指示器 */
+.status-indicator {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+/* 有角标时隐藏状态指示器 */
+.linkcard:has(.linkcard-badge) .status-indicator {
+    display: none;
+}
+
+.status-online { background: #30D158; }
+.status-slow { background: #FF9F0A; }
+.status-offline { background: #FF453A; }
+.status-auto { background: #30D158; }
+
+/* 角标系统 */
+.linkcard-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--linkcard-accent-blue);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 6px;
+    border-radius: 8px;
+    letter-spacing: 0.01em;
+    z-index: 2;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* 网格布局 */
+.linkcard-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin-top: 16px;
+}
+
+/* 第一个网格不需要上边距 */
+.linkcard-grid:first-child {
+    margin-top: 0;
+}
+
+/* 网格内的卡片不需要额外上边距 */
+.linkcard-grid .linkcard {
+    margin-top: 0;
+}
+
+/* 单个链接样式 */
+.linkcard-single {
+    max-width: 380px;
+    width: 100%;
+}
+
+.linkcard-single .linkcard-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.linkcard-single .linkcard-header {
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.linkcard-single .linkcard-icon {
+    margin-top: 2px;
+}
+
+.linkcard-single .linkcard-description {
+    margin-top: 4px;
+}
+
+/* 极简单链接样式 */
+.linkcard-single-minimal {
+    max-width: 260px;
+    width: 100%;
+    padding: 12px;
+}
+
+.linkcard-single-minimal .linkcard-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.linkcard-single-minimal .linkcard-header {
+    margin-bottom: 0;
+}
+
+.linkcard-single-minimal .linkcard-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.linkcard-single-minimal .linkcard-title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* 响应式优化 */
+@media (max-width: 640px) {
+    .linkcard-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .linkcard-single,
+    .linkcard-single-minimal {
+        max-width: 100%;
+    }
 }

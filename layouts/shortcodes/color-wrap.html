@@ -1,0 +1,20 @@
+{{- /*
+A thin wrapper shortcode to add classes/attributes without modifying inner content.
+Usage:
+{{< color-wrap class="callout-purple text-indent-2" >}}...{{< /color-wrap >}}
+{{< color-wrap color="purple" >}}...{{< /color-wrap >}}  <-- color 参数会自动转为 class="callout-purple"
+*/ -}}
+
+{{- $class := .Get "class" | default ( .Get "classes" ) | default "" -}}
+{{- $id := .Get "id" | default "" -}}
+{{- $style := .Get "style" | default "" -}}
+{{- $color := .Get "color" | default "" -}}
+
+{{- if $color -}}
+  {{- $class = (print (cond (eq $class "") "" (print $class " ")) (print "callout-" $color)) -}}
+{{- end -}}
+
+<div{{ if $id }} id="{{ $id }}"{{ end }}{{ if $class }} class="{{ $class }}"{{ end }}{{ if $style }} style="{{ $style | safeCSS }}"{{ end }}>
+  {{- .Inner -}}
+</div>
+
