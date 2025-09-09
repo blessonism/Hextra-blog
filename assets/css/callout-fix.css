@@ -577,3 +577,70 @@ div[class~="hx-mt-6"][class~="hx-leading-7"] {
     margin-top: 0 !important;
   }
 }
+
+/* ========================================
+   Callout 段首缩进功能 - 简单通用版本
+   ======================================== */
+
+/* 通用段首缩进类 - 可以应用到任何元素上 */
+.text-indent-1 p { text-indent: 1em !important; }
+.text-indent-2 p { text-indent: 2em !important; }
+.text-indent-3 p { text-indent: 3em !important; }
+.text-indent-4 p { text-indent: 4em !important; }
+
+/* 确保列表项内的段落也有缩进 */
+.text-indent-1 li p { text-indent: 1em !important; }
+.text-indent-2 li p { text-indent: 2em !important; }
+.text-indent-3 li p { text-indent: 3em !important; }
+.text-indent-4 li p { text-indent: 4em !important; }
+
+/* 确保第一个段落也有缩进 */
+.text-indent-1 p:first-child { text-indent: 1em !important; }
+.text-indent-2 p:first-child { text-indent: 2em !important; }
+.text-indent-3 p:first-child { text-indent: 3em !important; }
+.text-indent-4 p:first-child { text-indent: 4em !important; }
+
+/* 嵌套元素内的段落也要缩进 */
+.text-indent-1 blockquote p,
+.text-indent-1 div p { text-indent: 1em !important; }
+.text-indent-2 blockquote p,
+.text-indent-2 div p { text-indent: 2em !important; }
+.text-indent-3 blockquote p,
+.text-indent-3 div p { text-indent: 3em !important; }
+.text-indent-4 blockquote p,
+.text-indent-4 div p { text-indent: 4em !important; }
+
+/* 响应式缩进：移动端使用较小的缩进 */
+@media (max-width: 768px) {
+  .text-indent-1 p,
+  .text-indent-1 li p,
+  .text-indent-1 p:first-child,
+  .text-indent-1 blockquote p,
+  .text-indent-1 div p {
+    text-indent: 1em !important;
+  }
+
+  .text-indent-2 p,
+  .text-indent-2 li p,
+  .text-indent-2 p:first-child,
+  .text-indent-2 blockquote p,
+  .text-indent-2 div p {
+    text-indent: 1.5em !important;
+  }
+
+  .text-indent-3 p,
+  .text-indent-3 li p,
+  .text-indent-3 p:first-child,
+  .text-indent-3 blockquote p,
+  .text-indent-3 div p {
+    text-indent: 2em !important;
+  }
+
+  .text-indent-4 p,
+  .text-indent-4 li p,
+  .text-indent-4 p:first-child,
+  .text-indent-4 blockquote p,
+  .text-indent-4 div p {
+    text-indent: 2.5em !important;
+  }
+}
