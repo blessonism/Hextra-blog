@@ -2,6 +2,10 @@
 baseURL: "https://blog.sukisq.me/"
 title: Dumb fox's Space
 
+# Build configuration
+buildFuture: true
+timeZone: "Asia/Shanghai"
+
 # import hextra as module
 module:
   imports:
@@ -53,6 +57,12 @@ params:
   editURL:
     enable: true
     base: "https://github.com/blessonism"
+
+  blog:
+    list:
+      sortBy: date
+      sortOrder: desc
+      displayTags: true
 
 taxonomies:
   tag: tags
