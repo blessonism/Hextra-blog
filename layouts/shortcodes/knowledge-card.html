@@ -1,0 +1,147 @@
+{{- $title := .Get "title" | default "知识卡片" -}}
+{{- $subtitle := .Get "subtitle" | default "" -}}
+{{- $description := .Get "description" | default "" -}}
+{{- $quote := .Get "quote" | default "" -}}
+{{- $theme := .Get "theme" | default "green" -}}
+{{- $layout := .Get "layout" | default "default" -}}
+{{- $highlight := .Get "highlight" | default "" -}}
+
+{{- /* 解析内容列表 */ -}}
+{{- $items := slice -}}
+{{- $content := trim .Inner " \t\r\n" -}}
+{{- if $content -}}
+  {{- range $line := split $content "\n" -}}
+    {{- $line = trim $line " \t\r\n" -}}
+    {{- if $line -}}
+      {{- $cleanLine := $line -}}
+      {{- /* 移除列表前缀 */ -}}
+      {{- if hasPrefix $line "1. " -}}{{- $cleanLine = substr $line 3 -}}{{- end -}}
+      {{- if hasPrefix $line "2. " -}}{{- $cleanLine = substr $line 3 -}}{{- end -}}
+      {{- if hasPrefix $line "3. " -}}{{- $cleanLine = substr $line 3 -}}{{- end -}}
+      {{- if hasPrefix $line "4. " -}}{{- $cleanLine = substr $line 3 -}}{{- end -}}
+      {{- if hasPrefix $line "5. " -}}{{- $cleanLine = substr $line 3 -}}{{- end -}}
+      {{- if hasPrefix $line "6. " -}}{{- $cleanLine = substr $line 3 -}}{{- end -}}
+      {{- if hasPrefix $line "7. " -}}{{- $cleanLine = substr $line 3 -}}{{- end -}}
+      {{- if hasPrefix $line "8. " -}}{{- $cleanLine = substr $line 3 -}}{{- end -}}
+      {{- if hasPrefix $line "9. " -}}{{- $cleanLine = substr $line 3 -}}{{- end -}}
+      {{- if hasPrefix $line "- " -}}{{- $cleanLine = substr $line 2 -}}{{- end -}}
+      {{- if hasPrefix $line "* " -}}{{- $cleanLine = substr $line 2 -}}{{- end -}}
+      {{- if hasPrefix $line "+ " -}}{{- $cleanLine = substr $line 2 -}}{{- end -}}
+
+      {{- /* 解析标题和描述 */ -}}
+      {{- if ne $cleanLine $line -}}
+        {{- $parts := split $cleanLine " - " -}}
+        {{- if eq (len $parts) 2 -}}
+          {{- $itemTitle := trim (index $parts 0) "* " -}}
+          {{- $itemDesc := trim (index $parts 1) " " -}}
+          {{- $items = $items | append (dict "title" $itemTitle "description" $itemDesc) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* 如果没有解析到内容，提供默认示例 */ -}}
+{{- if eq (len $items) 0 -}}
+  {{- $items = slice 
+    (dict "title" "第一步" "description" "这里是第一步的详细描述")
+    (dict "title" "第二步" "description" "这里是第二步的详细描述")
+    (dict "title" "第三步" "description" "这里是第三步的详细描述")
+  -}}
+{{- end -}}
+
+{{- /* 主题类名映射 */ -}}
+{{- $themeClass := "knowledge-card-green" -}}
+{{- if eq $theme "blue" -}}
+  {{- $themeClass = "knowledge-card-blue" -}}
+{{- else if eq $theme "purple" -}}
+  {{- $themeClass = "knowledge-card-purple" -}}
+{{- else if eq $theme "orange" -}}
+  {{- $themeClass = "knowledge-card-orange" -}}
+{{- else if eq $theme "gray" -}}
+  {{- $themeClass = "knowledge-card-gray" -}}
+{{- end -}}
+
+{{- /* 布局类名 */ -}}
+{{- $layoutClass := "knowledge-card-default" -}}
+{{- if eq $layout "compact" -}}
+  {{- $layoutClass = "knowledge-card-compact" -}}
+{{- else if eq $layout "minimal" -}}
+  {{- $layoutClass = "knowledge-card-minimal" -}}
+{{- end -}}
+
+<div class="knowledge-card {{ $themeClass }} {{ $layoutClass }}" role="article" aria-labelledby="kc-title-{{ now.Unix }}">
+  <div class="knowledge-card-container">
+    <div class="knowledge-card-content">
+      <div class="knowledge-card-grid">
+        <!-- 左侧主要内容区 -->
+        <div class="knowledge-card-main">
+          <div class="knowledge-card-header">
+            <h2 id="kc-title-{{ now.Unix }}" class="knowledge-card-title">{{ $title }}</h2>
+            {{- if $subtitle -}}
+              <p class="knowledge-card-subtitle">{{ $subtitle }}</p>
+            {{- end -}}
+          </div>
+          
+          {{- if $description -}}
+            <div class="knowledge-card-description-box">
+              <h3 class="knowledge-card-description-title">核心理念</h3>
+              <p class="knowledge-card-description">{{ $description }}</p>
+            </div>
+          {{- end -}}
+          
+          {{- if $quote -}}
+            <blockquote class="knowledge-card-quote">
+              {{ $quote }}
+            </blockquote>
+          {{- end -}}
+        </div>
+        
+        <!-- 右侧步骤列表区 -->
+        <div class="knowledge-card-steps">
+          {{- $stepCount := len $items -}}
+          {{- $totalLines := 0 -}}
+          {{- /* 计算总行数 - 基于文本长度估算，考虑中文字符 */ -}}
+          {{- range $item := $items -}}
+            {{- $titleLength := len $item.title -}}
+            {{- $descLength := len $item.description -}}
+            {{- /* 标题行数估算：考虑中文字符，每20个字符一行 */ -}}
+            {{- $titleLines := div (add $titleLength 19) 20 -}}
+            {{- if lt $titleLines 1 -}}{{- $titleLines = 1 -}}{{- end -}}
+            {{- /* 描述行数估算：考虑中文字符，每30个字符一行 */ -}}
+            {{- $descLines := div (add $descLength 29) 30 -}}
+            {{- if lt $descLines 1 -}}{{- $descLines = 1 -}}{{- end -}}
+            {{- $totalLines = add $totalLines $titleLines $descLines -}}
+          {{- end -}}
+
+          {{- $containerClass := "knowledge-card-steps-container" -}}
+          {{- /* 基于总行数的智能压缩策略 */ -}}
+          {{- /* 轻微压缩：当内容开始变多时 */ -}}
+          {{- if ge $totalLines 10 -}}{{- $containerClass = printf "%s steps-compact" $containerClass -}}{{- end -}}
+          {{- /* 适度压缩：当内容较多时 */ -}}
+          {{- if ge $totalLines 14 -}}{{- $containerClass = printf "%s steps-dense" $containerClass -}}{{- end -}}
+          {{- /* 明显压缩：当内容很多时 */ -}}
+          {{- if ge $totalLines 18 -}}{{- $containerClass = printf "%s steps-minimal" $containerClass -}}{{- end -}}
+          {{- /* 最大压缩：当内容非常多时 */ -}}
+          {{- if ge $totalLines 22 -}}{{- $containerClass = printf "%s steps-ultra-compact" $containerClass -}}{{- end -}}
+          <!-- 调试信息：步骤数={{ $stepCount }}, 总行数={{ $totalLines }}, 压缩级别={{ $containerClass }} -->
+          <div class="{{ $containerClass }}">
+            {{- range $index, $item := $items -}}
+              {{- $stepNumber := add $index 1 -}}
+              {{- $isHighlighted := eq (string $stepNumber) $highlight -}}
+              <div class="knowledge-card-step{{ if $isHighlighted }} knowledge-card-step-highlighted{{ end }}">
+                <div class="knowledge-card-step-content">
+                  <div class="knowledge-card-step-number">{{ $stepNumber }}</div>
+                  <div class="knowledge-card-step-text">
+                    <h4 class="knowledge-card-step-title">{{ $item.title }}</h4>
+                    <p class="knowledge-card-step-description">{{ $item.description }}</p>
+                  </div>
+                </div>
+              </div>
+            {{- end -}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -20,6 +20,15 @@
   <link rel="stylesheet" href="{{ $custom.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $custom.Data.Integrity }}"{{ end }}>
 {{ end }}
 
+{{/* Knowledge Card component styles */}}
+{{ $knowledgeCard := resources.Get "css/knowledge-card.css" }}
+{{ if $knowledgeCard }}
+  {{ if hugo.IsProduction }}
+    {{ $knowledgeCard = $knowledgeCard | minify | fingerprint }}
+  {{ end }}
+  <link rel="stylesheet" href="{{ $knowledgeCard.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $knowledgeCard.Data.Integrity }}"{{ end }}>
+{{ end }}
+
 {{/* Callout alignment fix - highest priority CSS */}}
 <link rel="stylesheet" href="/css/callout-override.css">
 
