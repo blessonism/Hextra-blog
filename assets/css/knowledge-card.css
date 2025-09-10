@@ -1,0 +1,781 @@
+/* Knowledge Card 组件样式 */
+
+/* CSS 变量定义 */
+:root {
+  /* 绿色主题 */
+  --kc-green-primary: #20BF7A;
+  --kc-green-secondary: #1A9B6B;
+
+  /* 蓝色主题 */
+  --kc-blue-primary: #007AFF;
+  --kc-blue-secondary: #0056CC;
+
+  /* 紫色主题 */
+  --kc-purple-primary: #8B5CF6;
+  --kc-purple-secondary: #7C3AED;
+
+  /* 橙色主题 */
+  --kc-orange-primary: #F97316;
+  --kc-orange-secondary: #EA580C;
+
+  /* 灰色主题 */
+  --kc-gray-primary: #6B7280;
+  --kc-gray-secondary: #4B5563;
+
+  /* 通用变量 */
+  --kc-text-light: rgba(255, 255, 255, 0.9);
+  --kc-text-white: #ffffff;
+  --kc-glass-bg: rgba(255, 255, 255, 0.15);
+  --kc-glass-border: rgba(255, 255, 255, 0.2);
+  --kc-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --kc-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+  /* 响应式缩放比例 */
+  --kc-scale-desktop: 1; /* 桌面端 100% */
+  --kc-scale-large: 0.9; /* 大屏幕 90% */
+  --kc-scale-medium: 0.8; /* 中等屏幕 80% */
+  --kc-scale-tablet: 0.6; /* 平板端 60% */
+  --kc-scale-mobile: 0.45; /* 手机端 45% */
+}
+
+/* 深色模式变量 */
+[data-theme="dark"] {
+  --kc-glass-bg: rgba(255, 255, 255, 0.1);
+  --kc-glass-border: rgba(255, 255, 255, 0.15);
+  --kc-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --kc-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* 基础容器样式 */
+.knowledge-card {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--kc-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.knowledge-card:hover {
+  box-shadow: var(--kc-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.knowledge-card-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  padding: 2.5rem;
+}
+
+.knowledge-card-content {
+  height: 100%;
+}
+
+.knowledge-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  height: 100%;
+}
+
+/* 左侧主要内容区 */
+.knowledge-card-main {
+  display: flex;
+  flex-direction: column;
+  color: var(--kc-text-white);
+  height: 100%;
+}
+
+.knowledge-card-header {
+  margin-bottom: 2rem;
+}
+
+.knowledge-card-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 0.5rem 0;
+  color: var(--kc-text-white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.knowledge-card-subtitle {
+  font-size: 1.25rem;
+  color: var(--kc-text-light);
+  margin: 0;
+  font-weight: 400;
+}
+
+.knowledge-card-description-box {
+  background: var(--kc-glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--kc-glass-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.knowledge-card-description-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  color: var(--kc-text-white);
+}
+
+.knowledge-card-description {
+  color: var(--kc-text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.knowledge-card-quote {
+  padding-left: 1rem;
+  border-left: 4px solid rgba(255, 255, 255, 0.4);
+  font-style: italic;
+  color: var(--kc-text-light);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 右侧步骤列表区 */
+.knowledge-card-steps {
+  background: var(--kc-text-white);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.knowledge-card-steps-container {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+  gap: 1.125rem;
+  height: 100%;
+  overflow: hidden; /* 确保不溢出 */
+}
+
+/* 当步骤较多时，改用flex布局并压缩间距 */
+.knowledge-card-steps-container.steps-compact,
+.knowledge-card-steps-container.steps-dense,
+.knowledge-card-steps-container.steps-minimal,
+.knowledge-card-steps-container.steps-ultra-compact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* 智能自适应间距调整 - 温和渐进式压缩 */
+.knowledge-card-steps-container.steps-compact {
+  gap: 1rem; /* 轻微缩小间距 */
+  justify-content: flex-start;
+}
+
+.knowledge-card-steps-container.steps-dense {
+  gap: 0.875rem; /* 适度缩小间距 */
+  justify-content: flex-start;
+}
+
+.knowledge-card-steps-container.steps-minimal {
+  gap: 0.75rem; /* 明显缩小间距 */
+  justify-content: flex-start;
+}
+
+.knowledge-card-steps-container.steps-ultra-compact {
+  gap: 0.625rem; /* 较小间距 */
+  justify-content: flex-start;
+}
+
+/* 兼容性备选方案 - 使用 :has() 选择器 */
+.knowledge-card-steps-container:has(.knowledge-card-step:nth-child(5)) {
+  gap: 1rem;
+}
+
+.knowledge-card-steps-container:has(.knowledge-card-step:nth-child(7)) {
+  gap: 0.875rem;
+}
+
+.knowledge-card-steps-container:has(.knowledge-card-step:nth-child(9)) {
+  gap: 0.75rem;
+}
+
+.knowledge-card-steps-container:has(.knowledge-card-step:nth-child(12)) {
+  gap: 0.625rem;
+}
+
+.knowledge-card-step {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  flex-shrink: 0; /* 防止过度收缩 */
+}
+
+/* 智能自适应内边距调整 - 温和压缩 */
+.knowledge-card-steps-container.steps-compact .knowledge-card-step {
+  padding: 0.875rem; /* 轻微减少内边距 */
+}
+
+.knowledge-card-steps-container.steps-dense .knowledge-card-step {
+  padding: 0.75rem; /* 适度减少内边距 */
+}
+
+.knowledge-card-steps-container.steps-minimal .knowledge-card-step {
+  padding: 0.625rem; /* 明显减少内边距 */
+}
+
+.knowledge-card-steps-container.steps-ultra-compact .knowledge-card-step {
+  padding: 0.5rem; /* 较小内边距 */
+}
+
+/* 智能自适应字体大小调整 - 温和变化 */
+.knowledge-card-steps-container.steps-compact .knowledge-card-step-title {
+  font-size: 0.975rem; /* 非常轻微缩小 */
+  line-height: 1.28;
+}
+
+.knowledge-card-steps-container.steps-compact .knowledge-card-step-description {
+  font-size: 0.85rem; /* 轻微缩小 */
+  line-height: 1.38;
+}
+
+.knowledge-card-steps-container.steps-dense .knowledge-card-step-title {
+  font-size: 0.95rem; /* 轻微缩小 */
+  line-height: 1.25;
+}
+
+.knowledge-card-steps-container.steps-dense .knowledge-card-step-description {
+  font-size: 0.825rem; /* 轻微缩小 */
+  line-height: 1.35;
+}
+
+.knowledge-card-steps-container.steps-minimal .knowledge-card-step-title {
+  font-size: 0.925rem; /* 适度缩小 */
+  line-height: 1.22;
+}
+
+.knowledge-card-steps-container.steps-minimal .knowledge-card-step-description {
+  font-size: 0.8rem; /* 适度缩小 */
+  line-height: 1.3;
+}
+
+.knowledge-card-steps-container.steps-ultra-compact .knowledge-card-step-title {
+  font-size: 0.9rem; /* 明显缩小 */
+  line-height: 1.2;
+}
+
+.knowledge-card-steps-container.steps-ultra-compact .knowledge-card-step-description {
+  font-size: 0.775rem; /* 明显缩小 */
+  line-height: 1.25;
+}
+
+/* 智能自适应步骤编号圆圈大小 - 温和变化 */
+.knowledge-card-steps-container.steps-compact .knowledge-card-step-number {
+  width: 1.9rem; /* 非常轻微缩小 */
+  height: 1.9rem;
+  font-size: 0.825rem;
+}
+
+.knowledge-card-steps-container.steps-dense .knowledge-card-step-number {
+  width: 1.8rem; /* 轻微缩小 */
+  height: 1.8rem;
+  font-size: 0.8rem;
+}
+
+.knowledge-card-steps-container.steps-minimal .knowledge-card-step-number {
+  width: 1.7rem; /* 适度缩小 */
+  height: 1.7rem;
+  font-size: 0.775rem;
+}
+
+.knowledge-card-steps-container.steps-ultra-compact .knowledge-card-step-number {
+  width: 1.6rem; /* 明显缩小 */
+  height: 1.6rem;
+  font-size: 0.75rem;
+}
+
+.knowledge-card-step-highlighted {
+  background: rgba(var(--kc-primary-rgb), 0.05);
+  border: 2px dashed var(--kc-primary);
+}
+
+.knowledge-card-step-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.knowledge-card-step-number {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--kc-primary), var(--kc-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--kc-text-white);
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-top: 0.125rem;
+}
+
+.knowledge-card-step-text {
+  flex: 1;
+}
+
+.knowledge-card-step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.3;
+}
+
+.knowledge-card-step-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* 主题样式 */
+.knowledge-card-green {
+  background: linear-gradient(135deg, var(--kc-green-primary) 0%, var(--kc-green-secondary) 100%);
+  --kc-primary: var(--kc-green-primary);
+  --kc-secondary: var(--kc-green-secondary);
+  --kc-primary-rgb: 32, 191, 122;
+}
+
+.knowledge-card-blue {
+  background: linear-gradient(135deg, var(--kc-blue-primary) 0%, var(--kc-blue-secondary) 100%);
+  --kc-primary: var(--kc-blue-primary);
+  --kc-secondary: var(--kc-blue-secondary);
+  --kc-primary-rgb: 0, 122, 255;
+}
+
+.knowledge-card-purple {
+  background: linear-gradient(135deg, var(--kc-purple-primary) 0%, var(--kc-purple-secondary) 100%);
+  --kc-primary: var(--kc-purple-primary);
+  --kc-secondary: var(--kc-purple-secondary);
+  --kc-primary-rgb: 139, 92, 246;
+}
+
+.knowledge-card-orange {
+  background: linear-gradient(135deg, var(--kc-orange-primary) 0%, var(--kc-orange-secondary) 100%);
+  --kc-primary: var(--kc-orange-primary);
+  --kc-secondary: var(--kc-orange-secondary);
+  --kc-primary-rgb: 249, 115, 22;
+}
+
+.knowledge-card-gray {
+  background: linear-gradient(135deg, var(--kc-gray-primary) 0%, var(--kc-gray-secondary) 100%);
+  --kc-primary: var(--kc-gray-primary);
+  --kc-secondary: var(--kc-gray-secondary);
+  --kc-primary-rgb: 107, 114, 128;
+}
+
+/* 响应式设计 - 等比例缩放 */
+/* 大屏幕适配 (1024px-1200px) - 轻微缩放 */
+@media (max-width: 1200px) and (min-width: 1025px) {
+  .knowledge-card-container {
+    height: 550px; /* 轻微缩小 */
+    padding: 2.25rem;
+  }
+
+  .knowledge-card-title {
+    font-size: 2.75rem;
+  }
+
+  .knowledge-card-grid {
+    gap: 2.25rem;
+  }
+}
+
+/* 中等屏幕适配 (768px-1024px) - 中等缩放 */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .knowledge-card-container {
+    height: 480px; /* 等比例缩小到80% */
+    padding: 2rem;
+  }
+
+  .knowledge-card-title {
+    font-size: 2.4rem; /* 80% of 3rem */
+  }
+
+  .knowledge-card-subtitle {
+    font-size: 1rem; /* 80% of 1.25rem */
+  }
+
+  .knowledge-card-description-box {
+    padding: 1.2rem; /* 80% of 1.5rem */
+    margin-bottom: 1.6rem; /* 80% of 2rem */
+  }
+
+  .knowledge-card-description-title {
+    font-size: 1rem; /* 80% of 1.25rem */
+  }
+
+  .knowledge-card-steps {
+    padding: 1.6rem; /* 80% of 2rem */
+  }
+
+  .knowledge-card-grid {
+    gap: 2rem; /* 80% of 2.5rem */
+  }
+
+  .knowledge-card-step {
+    padding: 0.8rem; /* 80% of 1rem */
+  }
+
+  .knowledge-card-step-number {
+    width: 1.6rem; /* 80% of 2rem */
+    height: 1.6rem;
+    font-size: 0.7rem; /* 80% of 0.875rem */
+  }
+}
+
+/* 平板端适配 (480px-768px) - 单列布局，60%缩放 */
+@media (max-width: 768px) and (min-width: 481px) {
+  .knowledge-card-container {
+    height: auto;
+    min-height: 360px; /* 60% of 600px */
+    padding: 1.5rem; /* 60% of 2.5rem */
+  }
+
+  .knowledge-card-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* 60% of 2.5rem */
+  }
+
+  .knowledge-card-title {
+    font-size: 1.8rem; /* 60% of 3rem */
+  }
+
+  .knowledge-card-subtitle {
+    font-size: 0.75rem; /* 60% of 1.25rem */
+  }
+
+  .knowledge-card-description-box {
+    padding: 0.9rem; /* 60% of 1.5rem */
+    margin-bottom: 1.2rem; /* 60% of 2rem */
+  }
+
+  .knowledge-card-description-title {
+    font-size: 0.75rem; /* 60% of 1.25rem */
+  }
+
+  .knowledge-card-steps {
+    padding: 1.2rem; /* 60% of 2rem */
+  }
+
+  .knowledge-card-step {
+    padding: 0.6rem; /* 60% of 1rem */
+  }
+
+  .knowledge-card-step-number {
+    width: 1.2rem; /* 60% of 2rem */
+    height: 1.2rem;
+    font-size: 0.525rem; /* 60% of 0.875rem */
+  }
+
+  .knowledge-card-step-title {
+    font-size: 0.6rem; /* 60% of 1rem */
+  }
+
+  .knowledge-card-step-description {
+    font-size: 0.525rem; /* 60% of 0.875rem */
+  }
+
+  /* 动态间距也要相应调整 */
+  .knowledge-card-steps-container {
+    gap: 0.675rem; /* 60% of 1.125rem */
+  }
+
+  .knowledge-card-steps-container.steps-compact {
+    gap: 0.6rem; /* 60% of 1rem */
+  }
+
+  .knowledge-card-steps-container.steps-dense {
+    gap: 0.525rem; /* 60% of 0.875rem */
+  }
+
+  .knowledge-card-steps-container.steps-minimal {
+    gap: 0.45rem; /* 60% of 0.75rem */
+  }
+
+  .knowledge-card-steps-container.steps-ultra-compact {
+    gap: 0.375rem; /* 60% of 0.625rem */
+  }
+}
+
+/* 手机端适配 (≤480px) - 单列布局，45%缩放 */
+@media (max-width: 480px) {
+  .knowledge-card {
+    margin: 0.75rem auto; /* 减少外边距 */
+  }
+
+  .knowledge-card-container {
+    height: auto;
+    min-height: 270px; /* 45% of 600px */
+    padding: 1.125rem; /* 45% of 2.5rem */
+  }
+
+  .knowledge-card-grid {
+    gap: 1.125rem; /* 45% of 2.5rem */
+  }
+
+  .knowledge-card-title {
+    font-size: 1.35rem; /* 45% of 3rem */
+    line-height: 1.2; /* 稍微调整行高 */
+  }
+
+  .knowledge-card-subtitle {
+    font-size: 0.5625rem; /* 45% of 1.25rem */
+  }
+
+  .knowledge-card-description-box {
+    padding: 0.675rem; /* 45% of 1.5rem */
+    margin-bottom: 0.9rem; /* 45% of 2rem */
+  }
+
+  .knowledge-card-description-title {
+    font-size: 0.5625rem; /* 45% of 1.25rem */
+  }
+
+  .knowledge-card-description {
+    font-size: 0.5rem; /* 稍微调整以保持可读性 */
+    line-height: 1.5;
+  }
+
+  .knowledge-card-quote {
+    font-size: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .knowledge-card-steps {
+    padding: 0.9rem; /* 45% of 2rem */
+  }
+
+  .knowledge-card-step {
+    padding: 0.45rem; /* 45% of 1rem */
+  }
+
+  .knowledge-card-step-number {
+    width: 0.9rem; /* 45% of 2rem */
+    height: 0.9rem;
+    font-size: 0.39375rem; /* 45% of 0.875rem */
+  }
+
+  .knowledge-card-step-title {
+    font-size: 0.45rem; /* 45% of 1rem */
+    line-height: 1.3;
+  }
+
+  .knowledge-card-step-description {
+    font-size: 0.39375rem; /* 45% of 0.875rem */
+    line-height: 1.4;
+  }
+
+  /* 动态间距调整 */
+  .knowledge-card-steps-container {
+    gap: 0.50625rem; /* 45% of 1.125rem */
+  }
+
+  .knowledge-card-steps-container.steps-compact {
+    gap: 0.45rem; /* 45% of 1rem */
+  }
+
+  .knowledge-card-steps-container.steps-dense {
+    gap: 0.39375rem; /* 45% of 0.875rem */
+  }
+
+  .knowledge-card-steps-container.steps-minimal {
+    gap: 0.3375rem; /* 45% of 0.75rem */
+  }
+
+  .knowledge-card-steps-container.steps-ultra-compact {
+    gap: 0.28125rem; /* 45% of 0.625rem */
+  }
+}
+
+/* Hextra Adjust Width 按钮响应式支持 */
+/* 真正的等比例缩放，覆盖所有原有响应式规则 */
+
+/* xl模式：根据实际测量的缩放比例调整 */
+[data-size="xl"] .knowledge-card {
+  transform: scale(0.616); /* 根据实际宽度缩放比例 572/928 = 0.616 */
+  transform-origin: center center;
+  /* 根据新缩放比例调整宽度补偿 */
+  width: 162.34%; /* 100% / 0.616 */
+  margin-left: -31.17%; /* (162.34% - 100%) / 2 */
+  margin-right: -31.17%;
+  /* 大幅减少与上方标题的距离 */
+  margin-top: -5rem; /* 使用负margin拉近距离 */
+  margin-bottom: -7rem;
+}
+
+/* 强制重置容器尺寸，确保等比例缩放 */
+[data-size="xl"] .knowledge-card-container {
+  height: 600px !important; /* 强制重置为原始高度 */
+  padding: 2.5rem !important; /* 强制重置为原始内边距 */
+}
+
+[data-size="xl"] .knowledge-card-grid {
+  gap: 2.5rem !important; /* 强制重置为原始间距 */
+  grid-template-columns: 1fr 1fr !important; /* 强制重置为双列 */
+}
+
+/* 2xl模式：保持原始大小和原始间距 */
+[data-size="2xl"] .knowledge-card {
+  transform: scale(1);
+  transform-origin: center center;
+  width: 100%;
+  /* 保持原始的margin: 2rem auto，不要覆盖 */
+  margin: 2rem auto;
+}
+
+/* 组合响应式：Adjust Width + 屏幕尺寸 */
+/* 缩放 + 宽度补偿，确保填满可用宽度 */
+
+/* 大屏幕 (1024px-1200px) */
+@media (max-width: 1200px) and (min-width: 1025px) {
+  [data-size="xl"] .knowledge-card {
+    transform: scale(0.75);
+    width: 133.33%; /* 100% / 0.75 */
+    margin-left: -16.665%; /* (133.33% - 100%) / 2 */
+    margin-right: -16.665%;
+    margin-top: -1.5rem;
+    margin-bottom: -1.5rem;
+  }
+
+  /* 强制重置容器，确保等比例缩放 */
+  [data-size="xl"] .knowledge-card-container {
+    height: 600px !important;
+    padding: 2.5rem !important;
+  }
+
+  [data-size="xl"] .knowledge-card-grid {
+    gap: 2.5rem !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  [data-size="2xl"] .knowledge-card {
+    transform: scale(0.92);
+    width: 108.7%; /* 100% / 0.92 */
+    margin-left: -4.35%; /* (108.7% - 100%) / 2 */
+    margin-right: -4.35%;
+    margin-top: 2rem; /* 保持原始上边距 */
+    margin-bottom: 2rem; /* 保持原始下边距 */
+  }
+}
+
+/* 中等屏幕 (768px-1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  [data-size="xl"] .knowledge-card {
+    transform: scale(0.65);
+    width: 153.85%; /* 100% / 0.65 */
+    margin-left: -26.925%; /* (153.85% - 100%) / 2 */
+    margin-right: -26.925%;
+    margin-top: -2rem;
+    margin-bottom: -2rem;
+  }
+
+  /* 强制重置容器，确保等比例缩放 */
+  [data-size="xl"] .knowledge-card-container {
+    height: 600px !important;
+    padding: 2.5rem !important;
+  }
+
+  [data-size="xl"] .knowledge-card-grid {
+    gap: 2.5rem !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  [data-size="2xl"] .knowledge-card {
+    transform: scale(0.8);
+    width: 125%; /* 100% / 0.8 */
+    margin-left: -12.5%; /* (125% - 100%) / 2 */
+    margin-right: -12.5%;
+    margin-top: 2rem; /* 保持原始上边距 */
+    margin-bottom: 2rem; /* 保持原始下边距 */
+  }
+}
+
+/* 平板端 (480px-768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+  [data-size="xl"] .knowledge-card {
+    transform: scale(0.55);
+    width: 181.82%; /* 100% / 0.55 */
+    margin-left: -40.91%; /* (181.82% - 100%) / 2 */
+    margin-right: -40.91%;
+    margin-top: -2.5rem;
+    margin-bottom: -2.5rem;
+  }
+
+  /* 强制重置容器，确保等比例缩放 */
+  [data-size="xl"] .knowledge-card-container {
+    height: 600px !important;
+    padding: 2.5rem !important;
+  }
+
+  [data-size="xl"] .knowledge-card-grid {
+    gap: 2.5rem !important;
+    grid-template-columns: 1fr !important; /* 小屏幕单列 */
+  }
+
+  [data-size="2xl"] .knowledge-card {
+    transform: scale(0.65);
+    width: 153.85%; /* 100% / 0.65 */
+    margin-left: -26.925%; /* (153.85% - 100%) / 2 */
+    margin-right: -26.925%;
+    margin-top: 2rem; /* 保持原始上边距 */
+    margin-bottom: 2rem; /* 保持原始下边距 */
+  }
+
+  [data-size="2xl"] .knowledge-card-grid {
+    grid-template-columns: 1fr !important; /* 小屏幕单列 */
+  }
+}
+
+/* 手机端 (≤480px) */
+@media (max-width: 480px) {
+  [data-size="xl"] .knowledge-card {
+    transform: scale(0.45);
+    width: 222.22%; /* 100% / 0.45 */
+    margin-left: -61.11%; /* (222.22% - 100%) / 2 */
+    margin-right: -61.11%;
+    margin-top: -3rem;
+    margin-bottom: -3rem;
+  }
+
+  /* 强制重置容器，确保等比例缩放 */
+  [data-size="xl"] .knowledge-card-container {
+    height: 600px !important;
+    padding: 2.5rem !important;
+  }
+
+  [data-size="xl"] .knowledge-card-grid {
+    gap: 2.5rem !important;
+    grid-template-columns: 1fr !important; /* 小屏幕单列 */
+  }
+
+  [data-size="2xl"] .knowledge-card {
+    transform: scale(0.5);
+    width: 200%; /* 100% / 0.5 */
+    margin-left: -50%; /* (200% - 100%) / 2 */
+    margin-right: -50%;
+    margin-top: 2rem; /* 保持原始上边距 */
+    margin-bottom: 2rem; /* 保持原始下边距 */
+  }
+
+  [data-size="2xl"] .knowledge-card-grid {
+    grid-template-columns: 1fr !important; /* 小屏幕单列 */
+  }
+}
+
+
