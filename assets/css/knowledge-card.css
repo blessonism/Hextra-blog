@@ -22,6 +22,82 @@
   --kc-gray-primary: #6B7280;
   --kc-gray-secondary: #4B5563;
 
+  /* 红色主题 */
+  --kc-red-primary: #EF4444;
+  --kc-red-secondary: #DC2626;
+
+  /* 青色主题 */
+  --kc-cyan-primary: #06B6D4;
+  --kc-cyan-secondary: #0891B2;
+
+  /* 粉色主题 */
+  --kc-pink-primary: #EC4899;
+  --kc-pink-secondary: #DB2777;
+
+  /* 靛蓝主题 */
+  --kc-indigo-primary: #6366F1;
+  --kc-indigo-secondary: #4F46E5;
+
+  /* 翠绿主题 */
+  --kc-emerald-primary: #10B981;
+  --kc-emerald-secondary: #047857;
+
+  /* 琥珀主题 */
+  --kc-amber-primary: #F59E0B;
+  --kc-amber-secondary: #B45309;
+
+  /* 玫瑰主题 */
+  --kc-rose-primary: #F43F5E;
+  --kc-rose-secondary: #E11D48;
+
+  /* 紫罗兰主题 */
+  --kc-violet-primary: #8B5CF6;
+  --kc-violet-secondary: #6D28D9;
+
+  /* 石板主题 */
+  --kc-slate-primary: #64748B;
+  --kc-slate-secondary: #475569;
+
+  /* 天蓝主题 */
+  --kc-sky-primary: #0EA5E9;
+  --kc-sky-secondary: #0284C7;
+
+  /* 珊瑚主题 - 温暖珊瑚色 */
+  --kc-coral-primary: #FFA08E;
+  --kc-coral-secondary: #FEE1C4;
+
+  /* 薄荷主题 - 清新薄荷色（加深版） */
+  --kc-mint-primary: #4ECDC4;
+  --kc-mint-secondary: #44A08D;
+
+  /* 梦幻主题 - 梦幻渐变色（加深版） */
+  --kc-dream-primary: #667eea;
+  --kc-dream-secondary: #764ba2;
+
+  /* 海洋主题 - 深海到白浪 */
+  --kc-ocean-primary: #1d9bb2;
+  --kc-ocean-secondary: #ffffff;
+
+  /* 沙漠主题 - 金沙到深夜 */
+  --kc-desert-primary: #d1ac6d;
+  --kc-desert-secondary: #052857;
+
+  /* 湖泊主题 - 浅蓝湖水（调整对比度） */
+  --kc-lake-primary: #5ebddd;
+  --kc-lake-secondary: #3a9bc1;
+
+  /* 冰川主题 - 冰蓝渐变 */
+  --kc-glacier-primary: #4ca1af;
+  --kc-glacier-secondary: #c4e0e5;
+
+  /* 蜜桃主题 - 温暖蜜桃色（调整对比度） */
+  --kc-peach-primary: #ff9a8b;
+  --kc-peach-secondary: #6ad6aa;
+
+  /* 花园主题 - 花园色彩（调整对比度） */
+  --kc-garden-primary: #c471ed;
+  --kc-garden-secondary: #f64f59;
+
   /* 通用变量 */
   --kc-text-light: rgba(255, 255, 255, 0.9);
   --kc-text-white: #ffffff;
@@ -379,6 +455,139 @@
   --kc-primary-rgb: 107, 114, 128;
 }
 
+.knowledge-card-red {
+  background: linear-gradient(135deg, var(--kc-red-primary) 0%, var(--kc-red-secondary) 100%);
+  --kc-primary: var(--kc-red-primary);
+  --kc-secondary: var(--kc-red-secondary);
+  --kc-primary-rgb: 239, 68, 68;
+}
+
+.knowledge-card-cyan {
+  background: linear-gradient(135deg, var(--kc-cyan-primary) 0%, var(--kc-cyan-secondary) 100%);
+  --kc-primary: var(--kc-cyan-primary);
+  --kc-secondary: var(--kc-cyan-secondary);
+  --kc-primary-rgb: 6, 182, 212;
+}
+
+.knowledge-card-pink {
+  background: linear-gradient(135deg, var(--kc-pink-primary) 0%, var(--kc-pink-secondary) 100%);
+  --kc-primary: var(--kc-pink-primary);
+  --kc-secondary: var(--kc-pink-secondary);
+  --kc-primary-rgb: 236, 72, 153;
+}
+
+.knowledge-card-indigo {
+  background: linear-gradient(135deg, var(--kc-indigo-primary) 0%, var(--kc-indigo-secondary) 100%);
+  --kc-primary: var(--kc-indigo-primary);
+  --kc-secondary: var(--kc-indigo-secondary);
+  --kc-primary-rgb: 99, 102, 241;
+}
+
+.knowledge-card-emerald {
+  background: linear-gradient(135deg, var(--kc-emerald-primary) 0%, var(--kc-emerald-secondary) 100%);
+  --kc-primary: var(--kc-emerald-primary);
+  --kc-secondary: var(--kc-emerald-secondary);
+  --kc-primary-rgb: 16, 185, 129;
+}
+
+.knowledge-card-amber {
+  background: linear-gradient(135deg, var(--kc-amber-primary) 0%, var(--kc-amber-secondary) 100%);
+  --kc-primary: var(--kc-amber-primary);
+  --kc-secondary: var(--kc-amber-secondary);
+  --kc-primary-rgb: 245, 158, 11;
+}
+
+.knowledge-card-rose {
+  background: linear-gradient(135deg, var(--kc-rose-primary) 0%, var(--kc-rose-secondary) 100%);
+  --kc-primary: var(--kc-rose-primary);
+  --kc-secondary: var(--kc-rose-secondary);
+  --kc-primary-rgb: 244, 63, 94;
+}
+
+.knowledge-card-violet {
+  background: linear-gradient(135deg, var(--kc-violet-primary) 0%, var(--kc-violet-secondary) 100%);
+  --kc-primary: var(--kc-violet-primary);
+  --kc-secondary: var(--kc-violet-secondary);
+  --kc-primary-rgb: 139, 92, 246;
+}
+
+.knowledge-card-slate {
+  background: linear-gradient(135deg, var(--kc-slate-primary) 0%, var(--kc-slate-secondary) 100%);
+  --kc-primary: var(--kc-slate-primary);
+  --kc-secondary: var(--kc-slate-secondary);
+  --kc-primary-rgb: 100, 116, 139;
+}
+
+.knowledge-card-sky {
+  background: linear-gradient(135deg, var(--kc-sky-primary) 0%, var(--kc-sky-secondary) 100%);
+  --kc-primary: var(--kc-sky-primary);
+  --kc-secondary: var(--kc-sky-secondary);
+  --kc-primary-rgb: 14, 165, 233;
+}
+
+.knowledge-card-coral {
+  background: linear-gradient(135deg, var(--kc-coral-primary) 0%, var(--kc-coral-secondary) 100%);
+  --kc-primary: var(--kc-coral-primary);
+  --kc-secondary: var(--kc-coral-secondary);
+  --kc-primary-rgb: 255, 160, 142;
+}
+
+.knowledge-card-mint {
+  background: linear-gradient(135deg, var(--kc-mint-primary) 0%, var(--kc-mint-secondary) 100%);
+  --kc-primary: var(--kc-mint-primary);
+  --kc-secondary: var(--kc-mint-secondary);
+  --kc-primary-rgb: 78, 205, 196;
+}
+
+.knowledge-card-dream {
+  background: linear-gradient(135deg, var(--kc-dream-primary) 0%, var(--kc-dream-secondary) 100%);
+  --kc-primary: var(--kc-dream-primary);
+  --kc-secondary: var(--kc-dream-secondary);
+  --kc-primary-rgb: 102, 126, 234;
+}
+
+.knowledge-card-ocean {
+  background: linear-gradient(135deg, var(--kc-ocean-primary) 0%, var(--kc-ocean-secondary) 100%);
+  --kc-primary: var(--kc-ocean-primary);
+  --kc-secondary: var(--kc-ocean-secondary);
+  --kc-primary-rgb: 29, 155, 178;
+}
+
+.knowledge-card-desert {
+  background: linear-gradient(135deg, var(--kc-desert-primary) 0%, var(--kc-desert-secondary) 100%);
+  --kc-primary: var(--kc-desert-primary);
+  --kc-secondary: var(--kc-desert-secondary);
+  --kc-primary-rgb: 209, 172, 109;
+}
+
+.knowledge-card-lake {
+  background: linear-gradient(135deg, var(--kc-lake-primary) 0%, var(--kc-lake-secondary) 100%);
+  --kc-primary: var(--kc-lake-primary);
+  --kc-secondary: var(--kc-lake-secondary);
+  --kc-primary-rgb: 94, 189, 221;
+}
+
+.knowledge-card-glacier {
+  background: linear-gradient(135deg, var(--kc-glacier-primary) 0%, var(--kc-glacier-secondary) 100%);
+  --kc-primary: var(--kc-glacier-primary);
+  --kc-secondary: var(--kc-glacier-secondary);
+  --kc-primary-rgb: 76, 161, 175;
+}
+
+.knowledge-card-peach {
+  background: linear-gradient(135deg, var(--kc-peach-primary) 0%, var(--kc-peach-secondary) 100%);
+  --kc-primary: var(--kc-peach-primary);
+  --kc-secondary: var(--kc-peach-secondary);
+  --kc-primary-rgb: 255, 154, 139;
+}
+
+.knowledge-card-garden {
+  background: linear-gradient(135deg, var(--kc-garden-primary) 0%, var(--kc-garden-secondary) 100%);
+  --kc-primary: var(--kc-garden-primary);
+  --kc-secondary: var(--kc-garden-secondary);
+  --kc-primary-rgb: 196, 113, 237;
+}
+
 /* 响应式设计 - 等比例缩放 */
 /* 大屏幕适配 (1024px-1200px) - 轻微缩放 */
 @media (max-width: 1200px) and (min-width: 1025px) {
@@ -615,7 +824,7 @@
   margin-left: -31.17%; /* (162.34% - 100%) / 2 */
   margin-right: -31.17%;
   /* 大幅减少与上方标题的距离 */
-  margin-top: -5rem; /* 使用负margin拉近距离 */
+  margin-top: -6rem; /* 使用负margin拉近距离 */
   margin-bottom: -7rem;
 }
 
