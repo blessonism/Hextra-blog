@@ -2,6 +2,7 @@
 title: Resource Page
 type: docs
 prev: docs/folder/
+toc: false
 ---
 
 This page is under a folder.
