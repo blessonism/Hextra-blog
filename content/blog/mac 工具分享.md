@@ -2,7 +2,7 @@
 title: Mac 工具分享 🍎
 date: 2025-08-24T10:00:00+08:00
 slug: mac-tools-sharing
-author: Edom
+authors: ["Edom"]
 summary: 程序员的 Mac 工具箱 - 从鼠标配置到开发环境的完整指南
 tags: [Mac, 工具, 效率, 程序员]
 categories: [工具分享, Mac]

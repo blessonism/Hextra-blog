@@ -1,5 +1,7 @@
 ---
 title: 项目展示
+date: 2025-03-15T10:00:00+08:00
+authors: ["Edom"]
 type: showcase
 toc: true
 ---

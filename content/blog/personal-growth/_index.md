@@ -1,5 +1,6 @@
 ---
 title: "个人成长系列"
+date: 2025-09-19T10:00:00+08:00
 description: "一些关于学习、思考、成长的个人体会和反思"
 cascade:
   type: docs

@@ -1,5 +1,7 @@
 ---
 title: 生活中的闪光时刻✨
+date: 2025-08-01T10:00:00+08:00
+authors: ["Edom"]
 slug: shining-time
 type: docs
 draft: false

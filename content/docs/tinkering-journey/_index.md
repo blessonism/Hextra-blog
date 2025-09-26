@@ -1,5 +1,6 @@
 ---
 title: 折腾漫游记
+date: 2025-09-10T10:00:00+08:00
 type: docs
 sidebar:
   open: true
