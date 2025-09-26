@@ -7,8 +7,7 @@ tags: ["人生错题本", "自我反思", "成长记录", "错误复盘"]
 categories: ["人生错题本"]
 series: ["人生错题本"]
 weight: 4
-draft: false
-toc: false
+draft: true
 ---
 
 ## 什么是自身警钟

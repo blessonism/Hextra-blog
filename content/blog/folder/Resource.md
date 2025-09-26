@@ -2,7 +2,7 @@
 title: Resource Page
 type: blog
 prev: blog/folder/
-toc: false
+draft: true
 ---
 
 This page is under a folder.

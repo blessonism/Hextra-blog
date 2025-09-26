@@ -7,8 +7,7 @@ tags: ["人生错题本", "认知升级", "学习方法", "知识管理"]
 categories: ["人生错题本"]
 series: ["人生错题本"]
 weight: 5
-draft: false
-toc: false
+draft: true
 ---
 
 ## 什么是认知补丁
