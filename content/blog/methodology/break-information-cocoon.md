@@ -7,7 +7,7 @@ tags: ["信息获取", "视野拓展", "方法论", "认知升级"]
 categories: ["实用方法论"]
 series: ["实用方法论"]
 weight: 2
-draft: false
+draft: true
 toc: true
 ---
 

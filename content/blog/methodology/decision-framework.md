@@ -7,7 +7,7 @@ tags: ["决策方法", "理性思考", "选择困难", "方法论"]
 categories: ["实用方法论"]
 series: ["实用方法论"]
 weight: 3
-draft: false
+draft: true
 toc: true
 ---
 
