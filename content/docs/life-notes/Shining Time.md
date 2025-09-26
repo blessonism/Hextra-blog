@@ -1,5 +1,5 @@
 ---
-title: Shining Time✨
+title: 生活中的闪光时刻✨
 slug: shining-time
 type: docs
 draft: false

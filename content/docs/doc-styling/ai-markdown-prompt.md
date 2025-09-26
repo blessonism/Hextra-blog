@@ -93,7 +93,6 @@
 
 ## 🎨 常用组件速查
 
-```markdown
 # Callout 组件
 {{< callout type="info" >}}**标题**：信息内容{{< /callout >}}
 {{< callout type="warning" >}}**注意**：警告内容{{< /callout >}}
@@ -108,7 +107,7 @@
 # 常用 Emoji
 状态：✅完成 ❌错误 ⚠️警告 💡提示 🎯重点
 分类：📋列表 📝文档 🚀功能 🎨设计 🔧工具
-```
+
 
 ## 🚫 常见错误对照
 
