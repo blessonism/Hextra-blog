@@ -1,5 +1,7 @@
 ---
 title: Resource Page
+date: 2025-07-05T10:00:00+08:00
+authors: ["Edom"]
 type: docs
 prev: docs/folder/
 draft: true

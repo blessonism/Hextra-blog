@@ -1,10 +1,11 @@
 ---
 title: 写作指南（Hextra 主题）
+date: 2025-08-15T10:00:00+08:00
 type: docs
 weight: 10
 prev: /
 next: docs/
-author: Edom
+authors: ["Edom"]
 math: true
 toc: true
 ---

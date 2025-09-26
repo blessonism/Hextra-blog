@@ -1,5 +1,7 @@
 ---
 title: xyz 方法论
+date: 2025-04-01T10:00:00+08:00
+authors: ["Edom"]
 type: blog
 draft: true
 ---
