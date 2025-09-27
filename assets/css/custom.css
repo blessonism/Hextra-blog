@@ -819,7 +819,7 @@ html.hx-pv-reveal .hx-pv-hidden{opacity:.9;pointer-events:auto}
    ======================================== */
 
 /* 减少文章内容中第一个标题的上边距，避免与页面标题间距过大 */
-.content :is(h1,h2,h3,h4,h5,h6):first-child {
+.content :is(h1,h2,h3,h5,h6):first-child {
   margin-top: 1.25rem !important; /* 保持适当间距，与tabs面板规则一致 */
 }
 
