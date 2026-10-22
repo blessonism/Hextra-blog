@@ -20,7 +20,7 @@ toc: true
     image="/images/blog.webp"
     imageClass="hx-top-[40%] hx-left-[24px] hx-w-[180%] sm:hx-w-[110%] dark:hx-opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(59, 130, 246, 0.15),hsla(0,0%,100%,0));"
-    link="https://example.invalid"
+    link="/blog"
   >}}
   {{< hextra/feature-card
     title="AI智能助手系统"
@@ -84,21 +84,18 @@ toc: true
 
 {{< cards cols="3" >}}
   {{< card
-    link="https://example.invalid/weather-app"
     title="天气预报应用"
     icon="cloud"
     subtitle="使用原生JavaScript开发的天气应用，集成第三方API，支持地理定位和多城市查询。"
   >}}
 
   {{< card
-    link="https://example.invalid/chat-app"
     title="实时聊天应用"
     icon="sparkles"
     subtitle="基于WebSocket的实时聊天系统，支持多房间、文件传输、表情包功能。"
   >}}
 
   {{< card
-    link="https://example.invalid/e-commerce"
     title="电商网站模板"
     icon="template"
     subtitle="完整的电商解决方案，包含商品展示、购物车、支付集成、后台管理。"
@@ -167,7 +164,4 @@ toc: true
 如果你对以上项目感兴趣，或者想要技术交流合作，欢迎通过以下方式联系我：
 
 - **GitHub**: [@blessonism](https://github.com/blessonism)
-- **邮箱**: contact@example.invalid
-- **博客**: [example.invalid](https://example.invalid)
-- **LinkedIn**: [linkedin.com/in/redacted](https://linkedin.com/in/redacted)
 {{< /callout >}}
